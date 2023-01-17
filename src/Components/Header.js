@@ -34,7 +34,6 @@ function Header() {
             <ColorButton>PORTFOLIO</ColorButton>
             <ColorButton>RESUME</ColorButton>
             <ColorButton>BLOG</ColorButton>
-            <ColorButton>CONTACT</ColorButton>
         </div>
     </div>
   )
