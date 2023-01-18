@@ -1,6 +1,7 @@
 .App {
-  text-align: center;
+  height: 200vh;
   background: #edf1fd;
+  text-align: center;
 }
 
 ::-webkit-scrollbar {
@@ -8,8 +9,30 @@
 }
 
 .header {
-  background: transparent;
+  position: fixed;
+  display: flex;
+  background: #edf1fd;
   height: fit-content;
-  padding-top: 2%;
+  padding: 1%;
   font-family: 'Sofia Sans', sans-serif;
+}
+
+.header_l {
+  text-align: center;
+  font-family: 'Italianno', cursive;
+  font-size: 27px;
+  width: 15vw;
+}
+
+.header_c {
+  width: 70vw;
+}
+
+.header_r {
+  width: 15vw;
+  float: left;
+}
+
+.mainpage {
+  padding-top: 10vh;
 }
