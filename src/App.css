@@ -1,38 +1,70 @@
 .App {
-  height: 200vh;
-  background: #edf1fd;
   text-align: center;
+  display: grid;
 }
 
 ::-webkit-scrollbar {
   display: none;
 }
 
-.header {
-  position: fixed;
+.sofia {
+  font-family: 'Sofia Sans', 'sans-serif';
+}
+
+.italiano {
+  font-family: 'Italianno', cursive;
+}
+
+.pacifico {
+  font-family: 'Pacifico', cursive;
+}
+
+.header { 
   display: flex;
-  background: #edf1fd;
-  height: fit-content;
-  padding: 1%;
-  font-family: 'Sofia Sans', sans-serif;
 }
 
 .header_l {
   text-align: center;
   font-family: 'Italianno', cursive;
-  font-size: 27px;
+  font-size: 30px;
   width: 15vw;
+  margin-top: 3px;
 }
 
 .header_c {
+  text-align: center;
   width: 70vw;
 }
 
 .header_r {
+  font-family: 'Sofia Sans', 'sans-serif';
   width: 15vw;
-  float: left;
 }
 
-.mainpage {
-  padding-top: 10vh;
+.mainpage_bg {
+  height: 93.7vh;
+  width: 62vw;
+  background-image: url(./Assets/Mainpage.png);
+  background-size: cover;
+}
+
+.mainpage_ct {
+  margin-left: 20px;
+  display: flexbox;
+  width: 40vw;
+}
+
+.profile_pic {
+  margin-top: 25vh;
+  margin-left: 20vw;
+  height: 300px;
+  width: 300px;
+  border-radius: 300px;  
+  box-shadow: #000000 0px 5px 15px;
+}
+
+.icon {
+  height: 20px;
+  margin-bottom: -2px;
+  border-radius: 5px;
 }
