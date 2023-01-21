@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "../App.css";
 import html from "../Assets/html5.png";
 import css from "../Assets/css3.png";
@@ -22,12 +22,6 @@ const IconRedirectButton = styled(IconButton)({
 });
 
 function Mainpage() {
-  const [ihover,setihover] = useState(false);
-  const [thover,setthover] = useState(false);
-  const [whover,setwhover] = useState(false);
-  const [ghover,setghover] = useState(false);
-  const [dhover,setdhover] = useState(false);
-  const [ehover,setehover] = useState(false);
   return (
     <div>
         <Box
@@ -98,8 +92,6 @@ function Mainpage() {
                 href="https://instagram.com/tanishq_mudaliar"
                 target="_blank"
                 rel="noopener"
-                onMouseOver={()=>setihover(true)} 
-                onMouseOut={()=>setihover(false)} 
                 sx={{
                   backgroundColor: 'icon.background',
                   fontFamily: 'Sofia Sans, sans-serif',
@@ -110,14 +102,11 @@ function Mainpage() {
                 }}
               >
                 <InstagramIcon />
-                {ihover === true ? "Instagram" : ""}
               </IconRedirectButton>
               <IconRedirectButton
                 href="https://twitter.com/tanishqmudaliar"
                 target="_blank"
                 rel="noopener"
-                onMouseOver={()=>setthover(true)} 
-                onMouseOut={()=>setthover(false)}
                 sx={{
                   backgroundColor: 'icon.background',
                   fontFamily: 'Sofia Sans, sans-serif',
@@ -128,14 +117,11 @@ function Mainpage() {
                 }}
               >
                 <TwitterIcon />
-                {thover === true ? "Twitter" : ""}
               </IconRedirectButton>
               <IconRedirectButton
                 href="https://wa.me/+917977188240"
                 target="_blank"
                 rel="noopener"
-                onMouseOver={()=>setwhover(true)} 
-                onMouseOut={()=>setwhover(false)}
                 sx={{
                   backgroundColor: 'icon.background',
                   fontFamily: 'Sofia Sans, sans-serif',
@@ -146,14 +132,11 @@ function Mainpage() {
                 }}
               >
                 <WhatsAppIcon />
-                {whover === true ? "Whatsapp" : ""}
               </IconRedirectButton>
               <IconRedirectButton
                 href="https://github.com/tanishqmudaliar"
                 target="_blank"
                 rel="noopener"
-                onMouseOver={()=>setghover(true)} 
-                onMouseOut={()=>setghover(false)}
                 sx={{
                   backgroundColor: 'icon.background',
                   fontFamily: 'Sofia Sans, sans-serif',
@@ -164,14 +147,11 @@ function Mainpage() {
                 }}
               >
                 <GitHubIcon />
-                {ghover === true ? "Github" : ""}
               </IconRedirectButton>
               <IconRedirectButton
                 href="https://dev.to/tanishqmudaliar"
                 target="_blank"
                 rel="noopener"
-                onMouseOver={()=>setdhover(true)} 
-                onMouseOut={()=>setdhover(false)}
                 sx={{
                   backgroundColor: 'icon.background',
                   fontFamily: 'Sofia Sans, sans-serif',
@@ -182,14 +162,11 @@ function Mainpage() {
                 }}
               >
                 <LogoDevIcon />
-                {dhover === true ? "Dev.to" : ""}
               </IconRedirectButton>
               <IconRedirectButton
                 href="mailto:tanishqmudaliar1123@gmail.com"
                 target="_blank"
                 rel="noopener"
-                onMouseOver={()=>setehover(true)} 
-                onMouseOut={()=>setehover(false)}
                 sx={{
                   backgroundColor: 'icon.background',
                   fontFamily: 'Sofia Sans, sans-serif',
@@ -200,7 +177,6 @@ function Mainpage() {
                 }}
               >
                 <EmailIcon />
-                {ehover === true ? "Email" : ""}
               </IconRedirectButton>
             </Box>
           </div>
