@@ -2,6 +2,10 @@
 
 #important
 *.firebaserc
+/src/config
+firebase.json
+/.firebase
+/build
 
 # dependencies
 /node_modules
