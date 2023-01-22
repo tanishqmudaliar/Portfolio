@@ -6,6 +6,7 @@ import { Box, IconButton } from '@mui/material';
 import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Footer from './Components/Footer';
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -40,6 +41,7 @@ function App() {
         </div>
       </Box>
       <Mainpage />
+      <Footer />
     </div>
   );
 }
@@ -63,9 +65,11 @@ export default function ToggleColorMode() {
           background: {
             ...(mode === 'dark'
               ? {
-                default: '#131313'
+                default: '#131313',
+                footer: '#202020',
               } : {
-                default: '#edf1fd'
+                default: '#edf1fd',
+                footer: '#eaeaea'
               }
             )
           },
@@ -73,10 +77,14 @@ export default function ToggleColorMode() {
             ...(mode === 'dark'
               ? {
                 primary: '#ffb300',
-                secondary: 'rgba(255, 255, 255, 0.7)'
+                secondary: 'rgba(255, 255, 255, 0.7)',
+                hover: '#ffb300',
+                footer: 'rgba(255, 255, 255, 0.7)'
               } : {
                 primary: '#000000',
-                secondary: '#303030'
+                secondary: '#303030',
+                hover: '#000000',
+                footer: '#909090'
               }
             )
           },
