@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Link } from '@mui/material';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function Footer() {
+  useEffect(() => {
+    AOS.init();
+  }, [])
   return (
     <div>
         <Box
             sx={{
                 display: 'flex',
                 backgroundColor: 'background.footer',
-                boxShadow: '#ffb300 0px 5px 15px',
+                boxShadow: '0px 1px 15px #808080',
                 height: '100px'
             }}
         >
@@ -59,7 +64,7 @@ function Footer() {
                     Home
                 </Link>
                 <Link
-                    href="/home"
+                    href="/about"
                     color="text.footer"
                     underline="none"
                     sx={{
@@ -72,7 +77,7 @@ function Footer() {
                     About
                 </Link>
                 <Link
-                    href="/home"
+                    href="/portfolio"
                     color="text.footer"
                     underline="none"
                     sx={{
@@ -85,7 +90,7 @@ function Footer() {
                     Portfolio
                 </Link>
                 <Link
-                    href="/home"
+                    href="/resume"
                     color="text.footer"
                     underline="none"
                     sx={{
@@ -98,7 +103,7 @@ function Footer() {
                     Resume
                 </Link>
                 <Link
-                    href="/home"
+                    href="/blog"
                     color="text.footer"
                     underline="none"
                     sx={{
@@ -111,7 +116,7 @@ function Footer() {
                     Blog
                 </Link>
                 <Link
-                    href="/home"
+                    href="/contact"
                     color="text.footer"
                     underline="none"
                     sx={{

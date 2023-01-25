@@ -1,23 +1,78 @@
-import React from 'react';
+import React, { useContext, createContext, useMemo, useState } from 'react';
 import './App.css';
 import Header from './Components/Header';
 import Mainpage from './Components/Mainpage';
-import { Box, IconButton } from '@mui/material';
-import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Footer from './Components/Footer';
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
+import { AppBar, Box, IconButton } from '@mui/material';
+import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
+import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
+import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
+import About from './Components/About';
+import ErrorPage from './Components/ErrorPage';
+import Portfolio from './Components/Portfolio';
 
-const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+const ColorModeContext = createContext({ toggleColorMode: () => {} });
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Mainpage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/home",
+    element: <Mainpage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/about",
+    element: <About />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/portfolio",
+    element: <Portfolio />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/resume",
+    element: <Mainpage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/blog",
+    element: <Mainpage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/contact",
+    element: <Mainpage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/404",
+    element: <ErrorPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "*",
+    element: <Navigate to="/404"/>,
+  }
+]);
 
 function App() {
   const theme = useTheme();
-  const colorMode = React.useContext(ColorModeContext);
+  const colorMode = useContext(ColorModeContext);
   return (
     <div className="App">
+      <AppBar>
       <Box
         sx={{
-          position: 'fixed',
           display: 'flex',
           bgcolor: 'background.default',
           height: 'fit-content',
@@ -35,20 +90,23 @@ function App() {
           >
             {theme.palette.mode} mode
             <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
-              {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+              {theme.palette.mode === 'dark' ? <LightModeRoundedIcon /> : <DarkModeRoundedIcon />}
             </IconButton>
           </Box>
         </div>
       </Box>
-      <Mainpage />
+      </AppBar>
+      <RouterProvider router={router}>
+        <Mainpage />
+      </RouterProvider>
       <Footer />
     </div>
   );
 }
 
-export default function ToggleColorMode() {
-  const [mode, setMode] = React.useState('light');
-  const colorMode = React.useMemo(
+export default function AppWithDarkMode() {
+  const [mode, setMode] = useState('light');
+  const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {
         setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
@@ -57,7 +115,7 @@ export default function ToggleColorMode() {
     [],
   );
 
-  const theme = React.useMemo(
+  const theme = useMemo(
     () =>
       createTheme({
         palette: {

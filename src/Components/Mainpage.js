@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import "../App.css";
 import html from "../Assets/html5.png";
 import css from "../Assets/css3.png";
@@ -22,20 +24,30 @@ const IconRedirectButton = styled(IconButton)({
 });
 
 function Mainpage() {
+  useEffect(() => {
+    AOS.init();
+  }, [])
   return (
     <div>
         <Box
           sx={{
-            marginTop: '6.3vh',
+            mt: '6.5vh',
             bgcolor: 'background.default',
             display: 'flex',
+            pl: '7vh',
           }}
         >
-          <div className='mainpage_ct'>
+          <div
+            className='mainpage_ct'
+            data-aos="zoom-in-right"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            >
             <Box
               sx={{
                 mt: '25vh',
                 display: 'flex',
+                textAlign: 'left',
               }}
             >
               <div className='sofia'>
@@ -51,9 +63,9 @@ function Mainpage() {
               <div className='pacifico'>
                 <Box
                   sx={{
-                    fontSize: '40px',
+                    fontSize: '35px',
                     color: '#ffb300',
-                    mt: -2.7,
+                    mt: -2,
                     ml: 1
                   }}
                 >
@@ -74,7 +86,7 @@ function Mainpage() {
                   color: 'text.secondary'
                 }}
               >
-                I'm a freelance web designer & full-stack developer from Mumbai, India.
+                I'm a freelance web designer & full stack developer from Mumbai, India.
                 I focus on writing clean, elegant, and efficient code.
                 I have an adequate experience with HTML5 <img src={html} alt="html5" className="icon" />,
                 CSS3 <img src={css} alt="css3" className="icon" />,

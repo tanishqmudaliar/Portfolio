@@ -38,12 +38,12 @@ function Header() {
         </Box>
         </div>
         <div className='header_c'>
-          <ColorButton>HOME</ColorButton>
-          <ColorButton>ABOUT</ColorButton>
-          <ColorButton>PORTFOLIO</ColorButton>
-          <ColorButton>RESUME</ColorButton>
-          <ColorButton>BLOG</ColorButton>
-          <ColorButton>CONTACT</ColorButton>
+          <ColorButton href='/home'>HOME</ColorButton>
+          <ColorButton href='/about'>ABOUT</ColorButton>
+          <ColorButton href='/portfolio'>PORTFOLIO</ColorButton>
+          <ColorButton href='/resume'>RESUME</ColorButton>
+          <ColorButton href='/blog'>BLOG</ColorButton>
+          <ColorButton href='/contact'>CONTACT</ColorButton>
         </div>
     </div>
   )
