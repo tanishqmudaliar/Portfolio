@@ -59,10 +59,6 @@ const router = createBrowserRouter([
     element: <ErrorPage />,
     errorElement: <ErrorPage />,
   },
-  {
-    path: "*",
-    element: <Navigate to="/404"/>,
-  }
 ]);
 
 function App() {
