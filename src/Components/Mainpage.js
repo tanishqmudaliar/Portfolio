@@ -97,7 +97,7 @@ function Mainpage() {
             <Box
               sx={{
                 textAlign: 'left',
-                marginTop: '7vh',
+                marginTop: '6vh',
               }}
             >
               <IconRedirectButton

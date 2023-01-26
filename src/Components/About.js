@@ -3,7 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '../App.css';
 import 'chart.js/auto';
-import { Box, Link } from '@mui/material';
+import { Box, Divider, Link } from '@mui/material';
 import { Pie } from "react-chartjs-2";
 import profile from '../Assets/profile.png';
 import profile1 from '../Assets/profile.png';
@@ -95,6 +95,11 @@ function About() {
             className='profile_a'
           />
         </Box>
+        <Divider
+          sx={{
+            backgroundColor: 'background.default',
+          }}
+        />
         <Box
             sx={{
               display: 'flex',
@@ -103,7 +108,6 @@ function About() {
               bgcolor: 'background.default',
               minHeight: '90vh',
               color: 'text.secondary',
-              boxShadow: '#808080 0px 1px 2px 0px, #808080 0px 1px 3px 1px',
             }}
         >
           <Box
@@ -167,6 +171,11 @@ function About() {
             </Box>
           </Box>
         </Box>
+        <Divider
+          sx={{
+            backgroundColor: 'background.default',
+          }}
+        />
         <Box
             sx={{
               display: 'flex',
@@ -175,7 +184,6 @@ function About() {
               bgcolor: 'background.default',
               minHeight: '90vh',
               color: 'text.secondary',
-              boxShadow: '#808080 0px 1px 2px 0px, #808080 0px 1px 3px 1px',
             }}
         >
           <img
@@ -228,6 +236,11 @@ function About() {
             </Box>
           </Box>
         </Box>
+        <Divider
+          sx={{
+            backgroundColor: 'background.default',
+          }}
+        />
         <Box
             sx={{
               display: 'flex',
@@ -236,7 +249,6 @@ function About() {
               bgcolor: 'background.default',
               minHeight: '90vh',
               color: 'text.secondary',
-              boxShadow: '#808080 0px 1px 2px 0px, #808080 0px 1px 3px 1px',
             }}
         >
           <Box

@@ -5,7 +5,6 @@ import Mainpage from './Components/Mainpage';
 import Footer from './Components/Footer';
 import {
   createBrowserRouter,
-  Navigate,
   RouterProvider,
 } from "react-router-dom";
 import { AppBar, Box, IconButton } from '@mui/material';
@@ -92,9 +91,7 @@ function App() {
         </div>
       </Box>
       </AppBar>
-      <RouterProvider router={router}>
-        <Mainpage />
-      </RouterProvider>
+      <RouterProvider router={router} />
       <Footer />
     </div>
   );
