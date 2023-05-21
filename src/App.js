@@ -1,68 +1,27 @@
 import React, { useContext, createContext, useMemo, useState } from 'react';
 import './App.css';
-import Header from './Components/Header';
-import Mainpage from './Components/Mainpage';
-import Footer from './Components/Footer';
 import {
-  createBrowserRouter,
   RouterProvider,
+  createBrowserRouter,
 } from "react-router-dom";
 import { AppBar, Box, IconButton } from '@mui/material';
 import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
 import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
+import Header from './Components/Header';
+import Mainpage from './Components/Mainpage';
+import Footer from './Components/Footer';
 import About from './Components/About';
 import ErrorPage from './Components/ErrorPage';
 import Portfolio from './Components/Portfolio';
+import DetailedPortfolio from './Components/DetailedPortfolio';
 
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Mainpage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/home",
-    element: <Mainpage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/about",
-    element: <About />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/portfolio",
-    element: <Portfolio />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/resume",
-    element: <Mainpage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/blog",
-    element: <Mainpage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/contact",
-    element: <Mainpage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/404",
-    element: <ErrorPage />,
-    errorElement: <ErrorPage />,
-  },
-]);
 
 function App() {
   const theme = useTheme();
   const colorMode = useContext(ColorModeContext);
+
   return (
     <div className="App">
       <AppBar>
@@ -80,7 +39,8 @@ function App() {
         <div className="header_r">
           <Box
             sx={{
-              color: 'text.secondary'
+              color: 'text.secondary',
+              fontSize: '15px',
             }}
           >
             {theme.palette.mode} mode
@@ -91,7 +51,33 @@ function App() {
         </div>
       </Box>
       </AppBar>
-      <RouterProvider router={router} />
+        <RouterProvider router={createBrowserRouter([
+          {
+            path: '/',
+            element: <Mainpage />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: '/home',
+            element: <Mainpage />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: '/about',
+            element: <About />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: '/portfolio',
+            element: <Portfolio />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "/portfolio/:id",
+            element: <DetailedPortfolio />,
+            errorElement: <ErrorPage />,
+          },
+        ])}/>
       <Footer />
     </div>
   );
@@ -142,7 +128,7 @@ export default function AppWithDarkMode() {
           icon: {
             ...(mode === 'dark'
               ? {
-                background: 'rgba(255, 255, 255, 0.7)',
+                background: '#ffb300',
                 color: '#303030'
               } : {
                 background: '#303030',

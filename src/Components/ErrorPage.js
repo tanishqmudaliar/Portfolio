@@ -1,17 +1,39 @@
+import { Box } from '@mui/material';
 import React from 'react';
 import { useRouteError } from "react-router-dom";
 
 function ErrorPage() {
     const error = useRouteError();
-    console.error(error);
   
     return (
-      <div id="error-page">
-        <h1>Oops!</h1>
-        <p>Sorry, an unexpected error has occurred.</p>
-        <p>{error.status}</p>
-        <p>{error.statusText || error.message}</p>
-        <p>{error.data}</p>
+      <div>
+        <Box
+          sx={{
+            mt: '10vh',
+            height: '76vh',
+            width: '100vw',
+            backgroundColor: 'background.default',
+            color: 'text.secondary',
+          }}
+        >
+          <Box
+            sx={{
+              pt: '15vh',
+              fontFamily: 'Sofia Sans',
+              fontSize: '200px',
+            }}
+          >
+            {error.status} {error.statusText}
+          </Box>
+          <Box
+            sx={{
+              fontFamily: 'Sofia Sans',
+              fontSize: '30px',
+            }}
+          >
+            {error.data}
+          </Box>
+        </Box>
       </div>
     );
 }

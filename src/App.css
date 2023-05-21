@@ -30,7 +30,8 @@ ul {
 .header_l {
   text-align: center;
   font-family: 'Italianno', cursive;
-  font-size: 30px;
+  font-size: 28px;
+  margin-top: 4px;
   width: 15vw;
 }
 
@@ -75,9 +76,37 @@ ul {
   height: 20px;
   margin-bottom: -2px;
   border-radius: 5px;
+  margin-right: 2px;
 }
 
 .anime {
   width: 45vw;
   height: 35vh;
+}
+
+.portfolio {
+  display: grid;
+  justify-content: space-evenly;
+  grid-gap: 10px;
+  grid-template-columns: 30vw 30vw 30vw;
+  grid-template-rows: auto;
+}
+
+.p_hover {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 3px;
+  border-radius: 10px;
+}
+
+.p_hover:hover {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.thumbnail {
+  width: 50vw;
+  border-radius: 15px;
+}
+
+.content1 {
+  padding: 1%;
+  width: 71vw;
 }

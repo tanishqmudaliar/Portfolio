@@ -6,15 +6,15 @@ import 'chart.js/auto';
 import { Box, Divider, Link } from '@mui/material';
 import { Pie } from "react-chartjs-2";
 import profile from '../Assets/profile.png';
-import profile1 from '../Assets/profile.png';
+import profile1 from '../Assets/profile1.png';
 import anime from '../Assets/anime.png';
 
 export const data = {
-  labels: ['Binge watching a series', 'Designing websites', 'React JS', 'HTML/CSS', 'C Programming'],
+  labels: ['Binge watching a series', 'Designing websites', 'PCB Designing', 'Working on circuits', 'Drinking Coffee'],
   datasets: [
     {
-      label: ' Experience',
-      data: [85, 60, 80, 40, 10],
+      label: 'Time spent %',
+      data: [25, 30, 15, 25, 5],
       backgroundColor: [
         'rgba(255, 99, 132, 0.5)',
         'rgba(54, 162, 235, 0.5)',
@@ -43,7 +43,7 @@ function About() {
     <div>
         <Box
           sx={{
-            marginTop: '9vh',
+            marginTop: '8vh',
             display: 'flex',
             justifyContent: 'space-evenly',
             alignItems: 'center',
@@ -59,7 +59,7 @@ function About() {
             sx={{
               textAlign: 'left',
               width: '40vw',
-              fontSize: '70px',
+              fontSize: '6.583vw',
               fontFamily: 'Sofia Sans',
               color: '#ffb300',
             }}
@@ -67,23 +67,24 @@ function About() {
             About me!
             <Box
               sx={{
-                fontSize: '35px',
+                fontSize: '2.37vw',
                 width: '30vw',
                 color: 'text.secondary',
               }}
             >
-              I'm a web designer & full stack developer based in Mumbai, India.
+              I'm a front-end developer with an intermediate knowledge of electronics based in Mumbai, India.
             </Box>
             <Box
               sx={{
                 mt: 2,
-                fontSize: '17px',
+                fontSize: '1.185vw',
                 width: '30vw',
                 color: 'text.secondary',
               }}
             >
-              Since 2018, I've enjoyed turning casual thoughts into simple, elegant and efficient websites.
-              When I'm not banging on my keyboard, you'll find me cooking, cycling or netflixing on my bed while eating pizza.
+              I'm a student at Vidyalankar Polytechnic, currently pursuing by diploma for electronics and telecommunication.
+              Since 2018, I've enjoyed finding solutions to casual day-to-day problems with the help of the knowledge I possess.
+              When I'm not banging my head on my keyboard trying to find the solution, you'll find me cooking, cycling, or Netflixing on my bed while eating pasta.
             </Box>
           </Box>
           </div>
@@ -116,23 +117,24 @@ function About() {
             sx={{
               width: '25vw',
               fontFamily: 'Sofia Sans',
-              fontSize: '50px',
+              fontSize: '2.897vw',
               textAlign: 'left',
             }}
           >
-            Part Designer
+            Part Coder
             <Box
               sx={{
                 mt: 2,
-                fontSize: '20px',
+                fontSize: '1.448vw',
               }}
             >
               <ul>
-                <li>UI design</li>
-                <li>UX design</li>
+                <li>UI/UX design</li>
+                <li>HTML, Javascript (React JS)</li>
+                <li>C Progamming and Assembly Language</li>
                 <li>Tailwind CSS</li>
-                <li>Material UI & Bootstrap</li>
-                <li>"Making it look alive"</li>
+                <li>Bootstrap</li>
+                <li>"Swearing at my computer"</li>
               </ul>
             </Box>
           </Box>
@@ -149,24 +151,23 @@ function About() {
             sx={{
               width: '25vw',
               fontFamily: 'Sofia Sans',
-              fontSize: '50px',
+              fontSize: '2.897vw',
               textAlign: 'right',
             }}
           >
-            Part Coder
+            Part Engineer
             <Box
               sx={{
                 mt: 2,
-                fontSize: '20px',
+                fontSize: '1.448vw',
                 direction: 'rtl'
               }}
             >
               <ul>
-                <li>Full-stack Developer</li>
-                <li>HTML / CSS</li>
-                <li>Javascript (React JS & Node.js)</li>
-                <li>C Progamming (Kinda)</li>
-                <li>Swearing at my computer</li>
+                <li>PCB Designing</li>
+                <li>Microcontrollers(8051,Arduino,ESP modules)</li>
+                <li>Circuit Designing</li>
+                <li>"Making it look alive"</li>
               </ul>
             </Box>
           </Box>
@@ -199,14 +200,14 @@ function About() {
             sx={{
               width: '35vw',
               fontFamily: 'Sofia Sans',
-              fontSize: '50px',
+              fontSize: '2.897vw',
               textAlign: 'left',
             }}
           >
             Random Facts
             <Box
               sx={{
-                fontSize: '20px',
+                fontSize: '1.448vw',
                 textAlign: 'left',
               }}
             >
@@ -257,23 +258,23 @@ function About() {
             sx={{
               fontFamily: 'Sofia Sans',
               width: '30vw',
-              fontSize: '50px',
+              fontSize: '2.897vw',
               textAlign: 'left',
             }}
           >
             My Skills
             <Box
               sx={{
-                fontSize: '20px',
+                fontSize: '1.448vw',
                 textAlign: 'left',
               }}
             >
               <ul>
                 <li>Binge watching a series</li>
                 <li>Designing websites</li>
-                <li>React JS</li>
-                <li>HTML/CSS</li>
-                <li>C Programming</li>
+                <li>PCB Designing</li>
+                <li>Working on circuits</li>
+                <li>Drinking coffee</li>
               </ul>
             </Box>
           </Box>

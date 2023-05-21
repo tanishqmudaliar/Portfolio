@@ -11,6 +11,7 @@ function Footer() {
     <div>
         <Box
             sx={{
+                fontSize: '15px',
                 display: 'flex',
                 backgroundColor: 'background.footer',
                 boxShadow: '0px 1px 15px #808080',
@@ -27,7 +28,7 @@ function Footer() {
                     textAlign: 'left',
                 }}
             >
-                                <Link
+                <Link
                     href="https://tanishqmudaliar.web.app/"
                     color="text.footer"
                     underline="none"
@@ -38,7 +39,7 @@ function Footer() {
                         }
                     }}
                 >
-                    © 2022 Tanishq Mudaliar
+                    &copy; 2022 Tanishq Mudaliar
                 </Link>
             </Box>
             <Box

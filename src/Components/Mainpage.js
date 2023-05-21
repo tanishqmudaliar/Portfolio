@@ -48,28 +48,30 @@ function Mainpage() {
                 mt: '25vh',
                 display: 'flex',
                 textAlign: 'left',
+                width: '40vw',
               }}
             >
               <div className='sofia'>
                 <Box
                   sx={{
                     color: "text.secondary",
-                    fontSize: '35px',
+                    fontSize: '2.37vw',
+                    display: 'flex'
                   }}
                 >
                   Hello, my name is
-                </Box>
-              </div>
-              <div className='pacifico'>
-                <Box
-                  sx={{
-                    fontSize: '35px',
-                    color: '#ffb300',
-                    mt: -2,
-                    ml: 1
-                  }}
-                >
-                  Tanishq Mudaliar
+                  <div className='pacifico'>
+                    <Box
+                      sx={{
+                        fontSize: '2.37vw',
+                        color: '#ffb300',
+                        ml: 1,
+                        mt: -2,
+                      }}
+                    >
+                      Tanishq Mudaliar
+                    </Box>
+                  </div>
                 </Box>
               </div>
             </Box>
@@ -82,15 +84,18 @@ function Mainpage() {
             <div className='sofia'>
               <Box
                 sx={{
-                  fontSize: '20px',
+                  fontSize: '1.185vw',
                   color: 'text.secondary'
                 }}
               >
-                I'm a freelance web designer & full stack developer from Mumbai, India.
+                I'm a 2nd-year diploma student who is an expert in the front end and has intermediate knowledge
+                of backend and electronics (IOT, Robotics).
+                I'm from Navi Mumbai, India.
                 I focus on writing clean, elegant, and efficient code.
+                I love playing with electronic components and use my coding and electronics knowledge to build some fascinating projects.
                 I have an adequate experience with HTML5 <img src={html} alt="html5" className="icon" />,
                 CSS3 <img src={css} alt="css3" className="icon" />,
-                and Javascript <img src={js} alt="js" className="icon" /><br/>(Node JS & React JS).
+                and Javascript <img src={js} alt="js" className="icon" />(React JS)
               </Box>
             </div>
             </Box>
