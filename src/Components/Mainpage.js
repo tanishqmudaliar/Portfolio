@@ -181,7 +181,7 @@ function Mainpage() {
                 <LogoDevIcon />
               </IconRedirectButton>
               <IconRedirectButton
-                href="mailto:tanishqmudaliar1123@gmail.com"
+                href="mailto:tanishqmudaliar846@gmail.com"
                 target="_blank"
                 rel="noopener"
                 sx={{

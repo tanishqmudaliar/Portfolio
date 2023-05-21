@@ -15,6 +15,7 @@ import About from './Components/About';
 import ErrorPage from './Components/ErrorPage';
 import Portfolio from './Components/Portfolio';
 import DetailedPortfolio from './Components/DetailedPortfolio';
+import Contact from './Components/Contact';
 
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
@@ -75,6 +76,11 @@ function App() {
           {
             path: "/portfolio/:id",
             element: <DetailedPortfolio />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "/contact",
+            element: <Contact />,
             errorElement: <ErrorPage />,
           },
         ])}/>
