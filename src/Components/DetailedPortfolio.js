@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Card, Divider } from '@mui/material';
+import { Box, Divider } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { db } from '../Config/firebase.js';
 import { onSnapshot, doc, collection } from "firebase/firestore";

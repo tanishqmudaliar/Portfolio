@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "../App.css";
 import { styled } from '@mui/material/styles';
 import { Box, Button } from '@mui/material';
+import { getDownloadURL, ref } from 'firebase/storage';
+import { storage } from '../Config/firebase';
 
 const ColorButton = styled(Button)({
   backgroundColor: "transparent",
@@ -26,6 +28,15 @@ const ColorButton = styled(Button)({
   }); 
 
 function Header() {
+  const [myresume, setMyResume] = useState(null);
+  useEffect(() => {
+    const resume = ref(storage,'Tanishq Mudaliar.pdf')
+    getDownloadURL(resume)
+      .then((url) => {
+        setMyResume(url)
+    })
+  })
+  
   return (
     <div className='header'>
         <div className='header_l'>
@@ -41,7 +52,14 @@ function Header() {
           <ColorButton href='/home'>HOME</ColorButton>
           <ColorButton href='/about'>ABOUT</ColorButton>
           <ColorButton href='/portfolio'>PORTFOLIO</ColorButton>
-          <ColorButton href='/resume'>RESUME</ColorButton>
+          <a
+            href={myresume}
+            download="Tanishq Mudaliar"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <ColorButton>RESUME</ColorButton>
+          </a>
           <ColorButton href='/blog'>BLOG</ColorButton>
           <ColorButton href='/contact'>CONTACT</ColorButton>
         </div>
