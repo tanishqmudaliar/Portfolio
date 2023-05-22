@@ -18,9 +18,7 @@ import {
   Drawer,
   IconButton,
   List,
-  ListItem,
   ListItemButton,
-  ListItemText,
   styled
 } from '@mui/material';
 import {
