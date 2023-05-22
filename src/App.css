@@ -3,10 +3,6 @@
   display: grid;
 }
 
-ul {
-  line-height: 1cm;
-}
-
 ::-webkit-scrollbar {
   display: none;
 }
@@ -21,28 +17,6 @@ ul {
 
 .pacifico {
   font-family: 'Pacifico', cursive;
-}
-
-.header { 
-  display: flex;
-}
-
-.header_l {
-  text-align: center;
-  font-family: 'Italianno', cursive;
-  font-size: 28px;
-  margin-top: 4px;
-  width: 15vw;
-}
-
-.header_c {
-  text-align: center;
-  width: 70vw;
-}
-
-.header_r {
-  font-family: 'Sofia Sans', 'sans-serif';
-  width: 15vw;
 }
 
 .mainpage_bg {

@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
-import { Box, Link } from '@mui/material';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React from 'react';
+import {
+    Box,
+    Link
+} from '@mui/material';
 
 function Footer() {
-  useEffect(() => {
-    AOS.init();
-  }, [])
   return (
     <div>
         <Box
@@ -15,16 +13,16 @@ function Footer() {
                 display: 'flex',
                 backgroundColor: 'background.footer',
                 boxShadow: '0px 1px 15px #808080',
-                height: '100px'
+                height: { xs: '200px', sm: '100px' },
+                justifyContent: 'space-around',
             }}
         >
             <Box
                 sx={{
-                    ml: '10vw',
-                    width: '40vw',
+                    width: 'fit-content',
                     fontFamily: 'Sofia Sans, sans-serif',
                     color: 'text.secondary',
-                    pt: 5,
+                    pt: '40px',
                     textAlign: 'left',
                 }}
             >
@@ -44,11 +42,12 @@ function Footer() {
             </Box>
             <Box
                 sx={{
-                    width: '40vw',
+                    width: 'fit-content',
                     fontFamily: 'Sofia Sans, sans-serif',
                     color: 'text.secondary',
-                    pt: 5,
+                    pt: { xs: '15px', sm: '40px' },
                     textAlign: 'right',
+                    display: { xs: 'grid', sm: 'block', md: 'block' }
                 }}
             >
                 <Link
