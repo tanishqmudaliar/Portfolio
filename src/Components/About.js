@@ -43,13 +43,13 @@ function About() {
           }}
         >
           <Box
-            data-aos="fade-right"
+            data-aos="zoom-in-right"
             data-aos-delay="50"
             data-aos-duration="1000"
               sx={{
                 px: '5%',
                 fontFamily: 'Sofia Sans',
-                fontSize: '70px',
+                fontSize: '68px',
                 display: 'flexbox',
                 width: 'fit-content',
                 textAlign: 'left',
@@ -59,7 +59,7 @@ function About() {
             About me!
             <Box
               sx={{
-                fontSize: { xs: '30px', sm: '40px' },
+                fontSize: { xs: '32px', sm: '44px' },
                 width: 'fit-content',
                 maxWidth: { md: '450px', lg: '550px', },
                 color: 'text.secondary',
@@ -90,7 +90,7 @@ function About() {
           >
             <img
               src={profile}
-              data-aos="fade-left"
+              data-aos="zoom-in-left"
               data-aos-delay="50"
               data-aos-duration="1000"
               alt="Tanishq Mudaliar"
@@ -107,17 +107,17 @@ function About() {
           sx={{
             bgcolor: 'background.default',
             display: { xs: 'grid', sm: 'grid', md: 'flex' },
-            justifyContent: 'space-evenly',
+            justifyContent: 'center',
             alignItems: 'center',
             height: 'max-content',
             minHeight: '90vh',
           }}
         >
           <Box
-            data-aos="fade-right"
+            data-aos="fade-up"
             data-aos-duration="1000"
             sx={{
-              width: 'fit-content',
+              width: {xs: '90vw', md: '30vw' },
               textAlign: 'left',
               color: 'text.secondary',
               fontFamily: 'Sofia Sans',
@@ -137,7 +137,7 @@ function About() {
             <Box
               sx={{
                 display: 'grid',
-                gridTemplateColumns: { xs: '40vw 40vw', sm: '30vw 30vw 30vw', md: 'none' },
+                gridTemplateColumns: { xs: '45vw 45vw', sm: '30vw 30vw 30vw', md: 'none' },
               }}
             >
               {technologies.map((software, tech) => (
@@ -150,8 +150,10 @@ function About() {
                   >
                     <Box
                       sx={{
-                        width: '50px',
-                        height: '50px',
+                        width: '5vw',
+                        minWidth: '50px',
+                        height: '5vw',
+                        minHeight: '50px',
                       }}
                     >
                       <BallCanvas icon={software.icon} />
@@ -173,7 +175,7 @@ function About() {
             sx={{
               width: {xs: '80vw', sm: '60vw', md: '55vh' },
               height: {xs: '80vw', sm: '60vw', md: '55vh' },
-              ml: { xs: 0, sm: '15vw', md: 0 },
+              mx: { xs: '5vw', sm: '15vw', md: 0 },
               py: { xs: '35px', sm: '50px', md: 0 }
             }}
           >
@@ -186,10 +188,10 @@ function About() {
             />
           </Box>
           <Box
-            data-aos="fade-left"
+            data-aos="fade-down"
             data-aos-duration="1000"
             sx={{
-              width: 'fit-content',
+              width: {xs: '90vw', md: '30vw' },
               textAlign: 'right',
               color: 'text.secondary',
               fontFamily: 'Sofia Sans',
@@ -209,7 +211,8 @@ function About() {
             <Box
               sx={{
                 display: 'grid',
-                gridTemplateColumns: { xs: '80vw', sm: '40vw 40vw', md: 'none' },
+                gridTemplateColumns: { xs: '90vw', sm: '40vw 40vw', md: 'none' },
+                mr: { xs: '5vw', sm: '0px' },
               }}
             >
               {technologies1.map((hardware, tech1) => (
@@ -231,8 +234,10 @@ function About() {
                     </Box>
                     <Box
                       sx={{
-                        width: '50px',
-                        height: '50px',
+                        width: '5vw',
+                        minWidth: '50px',
+                        height: '5vw',
+                        minHeight: '50px',
                       }}
                     >
                       <BallCanvas icon={hardware.icon} />
@@ -263,6 +268,7 @@ function About() {
           <Box
             sx={{
               width: { xs: '90vw', sm: '80vw', md: '45vw' },
+              mx: { xs: '5vw', sm: '10vw', md: '0px' },
             }}
           >
             <img
@@ -281,7 +287,7 @@ function About() {
               fontFamily: 'Sofia Sans',
               fontSize: '44px',
               textAlign: { xs: 'center', md: 'left' },
-              p: { xs: '20px', md: 'none' }
+              p: '20px',
             }}
           >
             Random Facts
@@ -336,14 +342,14 @@ function About() {
             }}
         >
           <Box
-            data-aos="zoom-in"
+            data-aos="fade-up"
             data-aos-duration="1000"
             sx={{
               display: 'grid',
               justifyContent: 'center',
               fontFamily: 'Sofia Sans',
-              width: 'fit-content',
-              p: { xs: '20px', md: 'none' },
+              width: { xs: '90vw', md: '45vw' },
+              mx: { xs: '5vw', md: '0px' },
               fontSize: '44px',
               textAlign: 'left',
             }}
@@ -363,8 +369,11 @@ function About() {
             </Box>
           </Box>
           <Box
+            data-aos="fade-down"
+            data-aos-duration="1000"
             sx={{
-              py: { xs: '20px', md: 'none' },
+              width: { xs: '90vw', md: '35vw' },
+              mx: { xs: '5vw', md: '0px' }
             }}
           >
             <Pie

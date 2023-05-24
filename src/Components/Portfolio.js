@@ -1,26 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import "../App.css";
-import { db } from '../Config/firebase.js';
-import { onSnapshot, collection, orderBy, query } from "firebase/firestore";
+import React, {
+    useState,
+    useEffect
+} from 'react';
+import AOS from 'aos';
+import {
+    Tilt,
+} from "react-tilt";
+import {
+    useNavigate
+} from 'react-router-dom';
+import RobotCanvas from '../Canvas/RobotCanvas';
+import {
+    db,
+} from '../Config/firebase.js';
+import {
+    onSnapshot,
+    collection,
+    orderBy,
+    query,
+} from "firebase/firestore";
 import {
     Box,
-    Breadcrumbs,
     Card,
-    CardContent,
     CardMedia,
-    Checkbox,
     Divider,
-    FormControlLabel,
-    Slider,
-    Typography,
 } from "@mui/material";
-import anime from "../Assets/anime1.png";
-import { useNavigate } from 'react-router-dom';
+import "../App.css";
+import 'aos/dist/aos.css';
+import "../App.css";
 
 function Portfolio() {
     const [projects, setProjects] = useState('');
     const navigate = useNavigate();
     useEffect(() => {
+        AOS.init();
         const docRef = (collection(db, "portfolio"));
         const docqRef = query(docRef, orderBy("createdOn", "desc"));
         onSnapshot(docqRef, (snapshot) =>
@@ -32,102 +45,53 @@ function Portfolio() {
         <div>
             <Box
                 sx={{
-                    mt: '10vh',
-                    display: 'flex',
+                    backgroundColor: 'background.default',
+                    display: { xs: 'grid', md: 'flex' },
                     justifyContent: 'space-evenly',
                     alignItems: 'center',
-                    backgroundColor: 'background.default',
-                    height: '90vh',
+                    height: 'fit-content',
+                    minHeight: '90vh',
+                    pt: { xs: '6vh', sm: '11vh', md: '10vh', lg: '10vh' },
                 }}
             >
                 <Box
-                    sx={{
-                        display: 'flexbox',
-                        justifyContent: 'space-evenly',
-                        alignItems: 'center',
-                        fontFamily: 'Sofia Sans',
-                        fontSize: '6.583vw', // 100px
-                        textAlign: 'left',
-                        width: '40vw',
-                        color: '#ffb300',
-                    }}
-                >
-                    Portfolio!
-                    <Box
-                        sx={{
-                            fontSize: '2.37vw', // 36px
-                            color: 'text.secondary',
-                        }}
-                    >
-                        Check out some of the projects, I have been working on recently.
-                        <Box
-                            sx={{
-                                mt: 2,
-                                fontSize: '1.185vw' , // 18px
-                                color: 'text.secondary',
-                            }}
-                        >
-                            I've build a few websites, did some projects for my college, including designing some circuits and PCB's. 
-                        </Box>
-                    </Box>
-                </Box>
-                <Box
+                    data-aos="fade-right"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
                     sx={{
                         display: 'grid',
                         justifyContent: 'space-evenly',
                         alignItems: 'center',
                         fontFamily: 'Sofia Sans',
-                        fontSize: '6.583vw', // 100px
-                        width: '40vw',
-                        color: '#ffb300'
+                        fontSize: '68px',
+                        textAlign: 'left',
+                        color: '#ffb300',
+                        width: 'fit-content',
+                        maxWidth: { xs: '90vw', md: '40vw' },
+                        px: '1%',
                     }}
                 >
+                    Portfolio!
                     <Box
                         sx={{
-                            display: 'flex',
-                            justifyContent: 'space-evenly',
-                            alignItems: 'center',
-                            fontFamily: 'Sofia Sans',
-                            fontSize: '18px',
+                            fontSize: { xs: '32px', sm: '44px' },
+                            color: 'text.secondary',
                         }}
                     >
-                        <FormControlLabel
-                            sx={{ color: 'text.secondary' }}
-                            control={<Checkbox defaultChecked sx={{ '&.Mui-checked': {color: '#ffb300'}}}/>}
-                            label="Creativity"
-                        />
-                        <Breadcrumbs aria-label="breadcrumb">
-                            <Typography color="text.primary">Home</Typography>
-                            <Typography color="text.primary">Portfolio</Typography>
-                        </Breadcrumbs>
+                        Check out some of the projects, I have been working on recently.
                     </Box>
-                    <Slider defaultValue={40} sx={{ color: '#ffb300', width: '10.145cm' }}/>
-                    <iframe
-                        title="my_spotify_playlist"
-                        style={{border: 0, marginBottom: -45, height: 200}}
-                        src="https://open.spotify.com/embed/playlist/43PcDa3cJzvjolJ5iavbWe?utm_source=generator"
-                        width="100%"
-                    ></iframe>
-                    <Card sx={{ 
-                        mt: 1,
-                        width: '10.145cm',
-                     }}>
-                        <CardMedia
-                        component="img"
-                        height="140"
-                        image={anime}
-                        alt="anime"
-                        />
-                        <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            Anime
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                        Anime is hand-drawn and computer-generated animation originating from Japan.
-                        Outside of Japan and in English, anime refers specifically to animation produced in Japan.
-                        </Typography>
-                        </CardContent>
-                        </Card>
+                </Box>
+                <Box
+                    data-aos="fade-left"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    sx={{
+                        width: { xs: '90vw', md: '40vw', lg: '45vw' },
+                        minWidth: '340px',
+                        height: { xs: '60vh', md: '70vh' },
+                    }}
+                >
+                    <RobotCanvas />
                 </Box>
             </Box>
             <Divider />
@@ -142,100 +106,124 @@ function Portfolio() {
             >
                 Some of my projects!
             </Box>
+            <Box
+                sx={{
+                    bgcolor: 'background.default',
+                }}
+            >
+                <Divider
+                    variant='middle'
+                /> 
+            </Box>
             {!projects &&
                 <Box
                     sx={{
                         backgroundColor: 'background.default',
                         fontSize: '22px',
                         fontFamily: 'Sofia Sans',
-                        pb: 12,
+                        py: 5,
                         color: 'text.secondary',
                     }}
                 >
-                    <Divider
-                        variant='middle'
-                        sx={{
-                            mb: 10,
-                        }}
-                    /> 
                     No projects uploaded yet to be shown.
                 </Box>
             }
             {projects && 
                 <Box
                     sx={{
-                        pb: '5vh',
                         backgroundColor: 'background.default',
                         color: 'text.secondary',
+                        width: '100vw',
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        justifyContent: 'space-evenly',
                     }}
-                    className="portfolio"
-                >
+                > 
                     {projects && projects?.map((project) => (
-                        <div key={project.id} className='p_hover'>
-                        <Card
-                            onClick={() =>
-                                navigate(`/portfolio/${project.id}`)
-                            }
-                            sx={{
-                                color: 'text.secondary',
-                                textAlign: 'left',
-                                fontFamily: 'Sofia Sans',
-                                cursor: 'pointer',
-                                borderRadius: '10px',
-                            }}
+                        <div
+                            data-aos="fade-up"
+                            data-aos-duration="1000"
+                            key={project.id}
                         >
-                            <CardMedia
-                                component="img"
-                                image={project.thumbnail}
-                                alt="thumbnail"
-                            />
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    mx: 2,
+                            <Tilt
+                                options={{
+                                max: 60,
+                                scale: 1,
+                                speed: 450,
                                 }}
                             >
-                                <Box
+                                <Card
+                                    onClick={() =>
+                                        navigate(`/portfolio/${project.id}`)
+                                    }
                                     sx={{
-                                        mt: 1.5,
-                                        fontSize: '28px',
+                                        my: '2.5vh',
+                                        boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 3px',
+                                        color: 'text.secondary',
                                         textAlign: 'left',
-                                        width: '50%',
+                                        fontFamily: 'Sofia Sans',
+                                        cursor: 'pointer',
+                                        borderRadius: '10px',
+                                        width: { xs: '90vw', sm: '45vw', md: '30vw' },
+                                        '&:hover': {
+                                            boxShadow: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px',
+                                        },
                                     }}
                                 >
-                                    {project.title}
-                                </Box>
-                                <Box
-                                    sx={{
-                                        mt: 1.5,
-                                        display: 'grid',
-                                        alignItems: 'flex-end',
-                                        fontSize: '18px',
-                                        textAlign: 'right',
-                                        width: '50%',
-                                    }}
-                                >
-                                    <Box>
-                                        {project.category}
+                                    <CardMedia
+                                        component="img"
+                                        image={project.thumbnail}
+                                        alt="thumbnail"
+                                    />
+                                    <Box
+                                        sx={{
+                                            display: 'flex',
+                                            mx: 2,
+                                        }}
+                                    >
+                                        <Box
+                                            sx={{
+                                                mt: 1,
+                                                fontSize: '28px',
+                                                textAlign: 'left',
+                                                width: '50%',
+                                            }}
+                                        >
+                                            {project.title}
+                                        </Box>
+                                        <Box
+                                            sx={{
+                                                mt: 1.5,
+                                                display: 'grid',
+                                                alignItems: 'flex-end',
+                                                fontSize: '18px',
+                                                textAlign: 'right',
+                                                width: '50%',
+                                            }}
+                                        >
+                                            <Box>
+                                                {project.category}
+                                            </Box>
+                                        </Box>
                                     </Box>
-                                </Box>
-                            </Box>
-                            <Divider
-                                variant='middle'
-                                sx={{
-                                    my: 0.5
-                                }}
-                            />
-                            <Box
-                                sx={{
-                                    ml: 2,
-                                    mb: 1,
-                                    fontSize: '15px',
-                                }}
-                            >
-                                {project.date}
-                            </Box>
-                        </Card>
+                                    <Divider
+                                        variant='middle'
+                                        sx={{
+                                            my: 0.5
+                                        }}
+                                    />
+                                    <Box
+                                        sx={{
+                                            width: '93%',
+                                            mx: 2,
+                                            fontSize: '15px',
+                                            my: 0.5,
+                                        }}
+                                    >
+                                        {project.date}
+                                    </Box>
+                                </Card>
+                            </Tilt>
                         </div>
                     ))}
                 </Box>

@@ -30,7 +30,6 @@ function Computer({ isMobile }) {
         object={computer.scene}
         scale={isMobile ? 0.95 : 0.835}
         position={isMobile ? [0, -2, -1.25] : [0, -2, -1.25]}
-        
       />
     </mesh>
   )

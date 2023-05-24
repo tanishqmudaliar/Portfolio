@@ -5,10 +5,10 @@ import "../App.css";
 import { Box, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import EmailIcon from '@mui/icons-material/Email';
 import LogoDevIcon from '@mui/icons-material/LogoDev';
 import Computer from '../Canvas/ComputerCanvas';
 
@@ -39,7 +39,7 @@ function Mainpage() {
           }}
         >
           <div
-            data-aos="zoom-in-right"
+            data-aos="fade-down"
             data-aos-delay="50"
             data-aos-duration="1000"
           >
@@ -172,7 +172,7 @@ function Mainpage() {
                   <LogoDevIcon />
                 </IconRedirectButton>
                 <IconRedirectButton
-                  href="mailto:tanishqmudaliar846@gmail.com"
+                  href="https://www.facebook.com/mudaliartanishq"
                   target="_blank"
                   rel="noopener"
                   sx={{
@@ -184,13 +184,13 @@ function Mainpage() {
                     fontSize: '20px',
                   }}
                 >
-                  <EmailIcon />
+                  <FacebookIcon />
                 </IconRedirectButton>
               </Box>
             </Box>
           </div>
           <Box
-            data-aos="fade-left"
+            data-aos="fade-up"
             data-aos-delay="50"
             data-aos-duration="1000"
             sx={{
