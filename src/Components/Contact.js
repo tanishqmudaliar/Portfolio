@@ -7,9 +7,11 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import SendIcon from '@mui/icons-material/Send';
 import emailjs from '@emailjs/browser';
 import '../App.css';
+import EarthCanvas from '../Canvas/EarthCanvas';
 
 const IconRedirectButton = styled(IconButton)({
-    margin: 5,
+    marginBottom: 5,
+    marginTop: 5,
     borderRadius: '10px',
     '&:hover': {
       backgroundColor: '#ffb300',
@@ -48,167 +50,149 @@ function Contact() {
         <Box
             sx={{
                 pt: '10vh',
-                height: '90vh',
+                minHeight: '90vh',
+                height: 'fit-content',
                 backgroundColor: 'background.default',
-                display: 'flex'
+                display: { xs: 'grid', md: 'flex' }
             }}
         >
             <Box
                 sx={{
-                    width: '40vw',
-                    pl: '10vw',
+                    width: { xs: '100vw', md: '50vw' },
+                    height: { xs: '100vw', md: 'auto' },
+                }}
+            >
+                <EarthCanvas />
+            </Box>
+            <Box
+                sx={{
+                    display: 'grid',
+                    alignItems: 'center',
+                    fontFamily: 'Sofia Sans',
+                    fontSize: '68px',
+                    textAlign: 'left',
+                    width: { xs: '100vw', md: '45vw' },
+                    color: '#ffb300',
                 }}
             >
                 <Box
                     sx={{
-                        display: 'flexbox',
-                        justifyContent: 'space-evenly',
-                        alignItems: 'center',
-                        fontFamily: 'Sofia Sans',
-                        fontSize: '6.583vw', // 100px
-                        textAlign: 'left',
-                        width: '40vw',
-                        color: '#ffb300',
-                        pt: '18vh',
+                        mx: '5%',
+                        width: '90%',
                     }}
                 >
                     Contact
-                    <Box
-                        sx={{
-                            fontSize: '2.37vw', // 36px
-                            color: 'text.secondary',
-                        }}
-                    >
-                        Get in touch with me via <br/>social media
-                    </Box>
-                    <Box
-                        className="contact"
-                    >
-                        <IconRedirectButton
-                            href="https://instagram.com/tanishq_mudaliar"
-                            target="_blank"
-                            rel="noopener"
-                            sx={{
-                            backgroundColor: 'icon.background',
-                            fontFamily: 'Sofia Sans, sans-serif',
-                            color: 'icon.color',
-                            height: '50px',
-                            minWidth: '50px',
-                            fontSize: '20px',
-                            }}
-                        >
-                            <InstagramIcon
-                                sx={{
-                                    pr: 1
-                                }}
-                            /> Instagram
-                        </IconRedirectButton>
-                        <IconRedirectButton
-                            href="https://twitter.com/tanishqmudaliar"
-                            target="_blank"
-                            rel="noopener"
-                            sx={{
-                            backgroundColor: 'icon.background',
-                            fontFamily: 'Sofia Sans, sans-serif',
-                            color: 'icon.color',
-                            height: '50px',
-                            minWidth: '50px',
-                            fontSize: '20px',
-                            }}
-                        >
-                            <TwitterIcon
-                                sx={{
-                                    pr: 1
-                                }}
-                            /> Twitter
-                        </IconRedirectButton>
-                        <IconRedirectButton
-                            href="https://wa.me/+917977188240"
-                            target="_blank"
-                            rel="noopener"
-                            sx={{
-                            backgroundColor: 'icon.background',
-                            fontFamily: 'Sofia Sans, sans-serif',
-                            color: 'icon.color',
-                            height: '50px',
-                            minWidth: '50px',
-                            fontSize: '20px',
-                            }}
-                        >
-                            <WhatsappIcon
-                                sx={{
-                                    pr: 1
-                                }}
-                            /> Whatsapp
-                        </IconRedirectButton>
-                        <IconRedirectButton
-                            href="https://www.linkedin.com/in/tanishqmudaliar/"
-                            target="_blank"
-                            rel="noopener"
-                            sx={{
-                            backgroundColor: 'icon.background',
-                            fontFamily: 'Sofia Sans, sans-serif',
-                            color: 'icon.color',
-                            height: '50px',
-                            minWidth: '50px',
-                            fontSize: '20px',
-                            }}
-                        >
-                            <LinkedInIcon
-                                sx={{
-                                    pr: 1
-                                }}
-                            /> LinkedIn
-                        </IconRedirectButton>
-                    </Box>
                 </Box>
-            </Box>
-            <Divider orientation="vertical" variant='middle' flexItem>
-                OR
-            </Divider>
-            <Box
-                sx={{
-                    width: '40vw',
-                    pr: '10vw',
-                }}
-            >
-                 <Box
+                <Box
                     sx={{
-                        display: 'flexbox',
-                        justifyContent: 'space-evenly',
-                        alignItems: 'center',
-                        fontFamily: 'Sofia Sans',
-                        fontSize: '6.583vw', // 100px
-                        textAlign: 'left',
-                        width: '40vw',
-                        color: '#ffb300',
-                        pt: '3vh',
-                        pl: '5vw',
+                        mx: '5%',
+                        width: '90%',
+                        fontSize: '36px',
+                        color: 'text.secondary',
                     }}
                 >
-                    Email me
-                    <Box
+                    Get in touch with me via social media or email
+                </Box>
+                <Box
+                    sx={{
+                        display: "grid",
+                        justifyContent: 'space-evenly',
+                        gridTemplateColumns: '45% 45%',
+                        my: '10px',
+                    }}
+                >
+                    <IconRedirectButton
+                        href="https://instagram.com/tanishq_mudaliar"
+                        target="_blank"
+                        rel="noopener"
                         sx={{
-                            fontSize: '2.37vw', // 36px
-                            color: 'text.secondary',
-                            pl: 1
+                          backgroundColor: 'icon.background',
+                          fontFamily: 'Sofia Sans, sans-serif',
+                          color: 'icon.color',
+                          height: '50px',
+                          minWidth: '50px',
+                          fontSize: '20px',
                         }}
                     >
-                        Send me an email
-                    </Box>
-                    <form onSubmit={sendEmail}>
+                        <InstagramIcon
+                            sx={{
+                                pr: 1
+                            }}
+                        /> Instagram
+                    </IconRedirectButton>
+                    <IconRedirectButton
+                        href="https://twitter.com/tanishqmudaliar"
+                        target="_blank"
+                        rel="noopener"
+                        sx={{
+                          backgroundColor: 'icon.background',
+                          fontFamily: 'Sofia Sans, sans-serif',
+                          color: 'icon.color',
+                          height: '50px',
+                          minWidth: '50px',
+                          fontSize: '20px',
+                        }}
+                    >
+                        <TwitterIcon
+                            sx={{
+                                pr: 1
+                            }}
+                        /> Twitter
+                    </IconRedirectButton>
+                    <IconRedirectButton
+                        href="https://wa.me/+917977188240"
+                        target="_blank"
+                        rel="noopener"
+                        sx={{
+                          backgroundColor: 'icon.background',
+                          fontFamily: 'Sofia Sans, sans-serif',
+                          color: 'icon.color',
+                          height: '50px',
+                          minWidth: '50px',
+                          fontSize: '20px',
+                        }}
+                    >
+                        <WhatsappIcon
+                            sx={{
+                                pr: 1
+                            }}
+                        /> Whatsapp
+                    </IconRedirectButton>
+                    <IconRedirectButton
+                        href="https://www.linkedin.com/in/tanishqmudaliar/"
+                        target="_blank"
+                        rel="noopener"
+                        sx={{
+                          backgroundColor: 'icon.background',
+                          fontFamily: 'Sofia Sans, sans-serif',
+                          color: 'icon.color',
+                          height: '50px',
+                          minWidth: '50px',
+                          fontSize: '20px',
+                        }}
+                    >
+                        <LinkedInIcon
+                            sx={{
+                                pr: 1
+                            }}
+                        /> LinkedIn
+                    </IconRedirectButton>
+                </Box>
+                <form onSubmit={sendEmail}>
                     <Box
                         sx={{
                             display:'grid',
                             gridRowGap:'10px',
-                            width: '35vw',
-                            pt: '20px'
+                            width: '93.4%',
+                            mb: '20px',
+                            mx: '3.3%',
                         }}
                     >
                         <TextField
                             variant='filled'
                             color='warning'
-                            label='Name'
+                            label='Your name'
+                            placeholder="What's your good name?"
                             type='text'
                             name='name'
                             fullWidth
@@ -217,7 +201,8 @@ function Contact() {
                         <TextField
                             variant='filled'
                             color='warning'
-                            label='Email'
+                            label='Your email'
+                            placeholder="What's your web address?"
                             type='email'
                             name='email'
                             fullWidth
@@ -226,23 +211,23 @@ function Contact() {
                         <TextField
                             variant='filled'
                             color='warning'
-                            label='Message'
+                            label='Your message'
+                            placeholder="What do you want to say?"
                             type='text'
                             name='message'
                             fullWidth
                             required
                             multiline
-                            rows={7}
                         />
                         <IconRedirectButton
                             type='submit'
                             sx={{
-                            backgroundColor: 'icon.background',
-                            fontFamily: 'Sofia Sans, sans-serif',
-                            color: 'icon.color',
-                            height: '50px',
-                            minWidth: '50px',
-                            fontSize: '20px',
+                                width: '100%',
+                                backgroundColor: 'icon.background',
+                                fontFamily: 'Sofia Sans',
+                                color: 'icon.color',
+                                height: '50px',
+                                fontSize: '20px',
                             }}
                         >
                             <SendIcon
@@ -252,8 +237,7 @@ function Contact() {
                             /> Send
                         </IconRedirectButton>
                     </Box>
-                    </form>
-                </Box>
+                </form>
             </Box>
         </Box>
         {error && <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>

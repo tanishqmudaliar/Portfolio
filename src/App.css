@@ -30,13 +30,3 @@
   padding: 1%;
   width: 71vw;
 }
-
-.contact{
-  display: grid;
-  margin-top: 20px;
-  margin-right: 10vw;
-  justify-content: space-evenly;
-  grid-row-gap: 10px;
-  grid-template-columns: 15vw 15vw;
-  grid-template-rows: auto;
-}
