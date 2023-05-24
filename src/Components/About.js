@@ -1,38 +1,28 @@
-import React, { useEffect } from 'react';
+import React, {
+  useEffect
+} from 'react';
 import AOS from 'aos';
-import 'aos/dist/aos.css';
-import '../App.css';
-import 'chart.js/auto';
-import { Box, Divider, Link } from '@mui/material';
-import { Pie } from "react-chartjs-2";
+import {
+  Pie
+} from "react-chartjs-2";
+import {
+  Box,
+  Divider,
+  Link
+} from '@mui/material';
+import {
+  technologies,
+  technologies1,
+  labels,
+  data,
+} from '../Constants';
 import profile from '../Assets/profile.png';
 import profile1 from '../Assets/profile1.png';
 import anime from '../Assets/anime.png';
-
-export const data = {
-  labels: ['Binge watching a series', 'Designing websites', 'PCB Designing', 'Working on circuits', 'Drinking Coffee'],
-  datasets: [
-    {
-      label: 'Time spent %',
-      data: [25, 30, 15, 25, 5],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.5)',
-        'rgba(54, 162, 235, 0.5)',
-        'rgba(75, 192, 192, 0.5)',
-        'rgba(153, 102, 255, 0.5)',
-        'rgba(255, 159, 64, 0.5)',
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
+import BallCanvas from '../Canvas/BallCanvas';
+import 'aos/dist/aos.css';
+import '../App.css';
+import 'chart.js/auto';
 
 function About() {
   useEffect(() => {
@@ -43,132 +33,213 @@ function About() {
     <div>
         <Box
           sx={{
-            marginTop: '8vh',
-            display: 'flex',
+            bgcolor: 'background.default',
+            display: { sm: 'grid', md: 'flex' },
             justifyContent: 'space-evenly',
             alignItems: 'center',
-            bgcolor: 'background.default',
-            minHeight: '91vh',
+            height: 'max-content',
+            minHeight: '95vh',
+            pt: { xs: '10vh', sm: '13vh', md: '15vh', lg: '5vh' },
           }}
         >
-          <div
-            data-aos="fade-right"
-            data-aos-duration="1000"
-          >
           <Box
-            sx={{
-              textAlign: 'left',
-              width: '40vw',
-              fontSize: '6.583vw',
-              fontFamily: 'Sofia Sans',
-              color: '#ffb300',
+            data-aos="fade-right"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+              sx={{
+                px: '5%',
+                fontFamily: 'Sofia Sans',
+                fontSize: '70px',
+                display: 'flexbox',
+                width: 'fit-content',
+                textAlign: 'left',
+                color: '#ffb300',
             }}
           >
             About me!
             <Box
               sx={{
-                fontSize: '2.37vw',
-                width: '30vw',
+                fontSize: { xs: '30px', sm: '40px' },
+                width: 'fit-content',
+                maxWidth: { md: '450px', lg: '550px', },
                 color: 'text.secondary',
               }}
             >
               I'm a front-end developer with an intermediate knowledge of electronics based in Mumbai, India.
+              <Box
+                sx={{
+                  mt: 2,
+                  fontSize: '22px',
+                  width: 'fit-content',
+                  color: 'text.secondary',
+                }}
+              >
+                I'm a student at Vidyalankar Polytechnic, currently pursuing diploma in electronics and telecommunication.
+                Since 2018, I've enjoyed finding solutions to casual day-to-day problems with the help of the knowledge I possess.
+                When I'm not banging my head on my keyboard trying to solve the error, you'll find me cooking, cycling, or Netflixing on my bed while eating pasta.
+              </Box>
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              width: {xs: '80vw', sm: '60vw', md: '55vh' },
+              height: {xs: '80vw', sm: '60vw', md: '55vh' },
+              ml: { xs: '10vw', sm: '20vw', md: 0 },
+              py: { xs: '35px', sm: '50px', md: 0 }
+            }}
+          >
+            <img
+              src={profile}
+              data-aos="fade-left"
+              data-aos-delay="50"
+              data-aos-duration="1000"
+              alt="Tanishq Mudaliar"
+              className='profile'
+            />
+          </Box>
+        </Box>
+        <Divider
+          sx={{
+            backgroundColor: 'background.default',
+          }}
+        />
+        <Box
+          sx={{
+            bgcolor: 'background.default',
+            display: { xs: 'grid', sm: 'grid', md: 'flex' },
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+            height: 'max-content',
+            minHeight: '90vh',
+          }}
+        >
+          <Box
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            sx={{
+              width: 'fit-content',
+              textAlign: 'left',
+              color: 'text.secondary',
+              fontFamily: 'Sofia Sans',
+              fontSize: '22px',
+              py: '20px',
+            }}
+          >
+            <Box
+              sx={{
+                textAlign: { xs: 'center', md: 'left' },
+                fontSize: '44px',
+                mb: '20px',
+              }}
+            >
+              Part Coder
             </Box>
             <Box
               sx={{
-                mt: 2,
-                fontSize: '1.185vw',
-                width: '30vw',
-                color: 'text.secondary',
+                display: 'grid',
+                gridTemplateColumns: { xs: '40vw 40vw', sm: '30vw 30vw 30vw', md: 'none' },
               }}
             >
-              I'm a student at Vidyalankar Polytechnic, currently pursuing by diploma for electronics and telecommunication.
-              Since 2018, I've enjoyed finding solutions to casual day-to-day problems with the help of the knowledge I possess.
-              When I'm not banging my head on my keyboard trying to find the solution, you'll find me cooking, cycling, or Netflixing on my bed while eating pasta.
+              {technologies.map((software, tech) => (
+                <div key={tech}>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: '50px',
+                        height: '50px',
+                      }}
+                    >
+                      <BallCanvas icon={software.icon} />
+                    </Box>
+                    <Box
+                      sx={{
+                        alignItems: 'center',
+                        ml: 2,
+                      }}
+                    >
+                      {software.name}
+                    </Box>
+                  </Box>
+                </div>
+              ))}
             </Box>
           </Box>
-          </div>
-          <img
-            src={profile}
+          <Box
+            sx={{
+              width: {xs: '80vw', sm: '60vw', md: '55vh' },
+              height: {xs: '80vw', sm: '60vw', md: '55vh' },
+              ml: { xs: 0, sm: '15vw', md: 0 },
+              py: { xs: '35px', sm: '50px', md: 0 }
+            }}
+          >
+            <img
+              src={profile1}
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+              alt="Tanishq Mudaliar"
+              className='profile'
+            />
+          </Box>
+          <Box
             data-aos="fade-left"
             data-aos-duration="1000"
-            alt="Tanishq Mudaliar"
-            className='profile_a'
-          />
-        </Box>
-        <Divider
-          sx={{
-            backgroundColor: 'background.default',
-          }}
-        />
-        <Box
             sx={{
-              display: 'flex',
-              justifyContent: 'space-evenly',
-              alignItems: 'center',
-              bgcolor: 'background.default',
-              minHeight: '90vh',
-              color: 'text.secondary',
-            }}
-        >
-          <Box
-            data-aos="zoom-in-right"
-            data-aos-duration="1000"
-            sx={{
-              width: '25vw',
-              fontFamily: 'Sofia Sans',
-              fontSize: '2.897vw',
-              textAlign: 'left',
-            }}
-          >
-            Part Coder
-            <Box
-              sx={{
-                mt: 2,
-                fontSize: '1.448vw',
-              }}
-            >
-              <ul>
-                <li>UI/UX design</li>
-                <li>HTML, Javascript (React JS)</li>
-                <li>C Progamming and Assembly Language</li>
-                <li>Tailwind CSS</li>
-                <li>Bootstrap</li>
-                <li>"Swearing at my computer"</li>
-              </ul>
-            </Box>
-          </Box>
-          <img
-            src={profile1}
-            data-aos="zoom-in"
-            data-aos-duration="1000"
-            alt="Tanishq Mudaliar"
-            className='profile'
-          />
-          <Box
-            data-aos="zoom-in-left"
-            data-aos-duration="1000"
-            sx={{
-              width: '25vw',
-              fontFamily: 'Sofia Sans',
-              fontSize: '2.897vw',
+              width: 'fit-content',
               textAlign: 'right',
+              color: 'text.secondary',
+              fontFamily: 'Sofia Sans',
+              fontSize: '22px',
+              py: '20px',
             }}
           >
-            Part Engineer
             <Box
               sx={{
-                mt: 2,
-                fontSize: '1.448vw',
-                direction: 'rtl'
+                textAlign: { xs: 'center', md: 'right' },
+                fontSize: '44px',
+                mb: '20px',
               }}
             >
-              <ul>
-                <li>PCB Designing</li>
-                <li>Microcontrollers(8051,Arduino,ESP modules)</li>
-                <li>Circuit Designing</li>
-                <li>"Making it look alive"</li>
-              </ul>
+              Part Engineer
+            </Box>
+            <Box
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: { xs: '80vw', sm: '40vw 40vw', md: 'none' },
+              }}
+            >
+              {technologies1.map((hardware, tech1) => (
+                <div key={tech1}>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'flex-end',
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        alignItems: 'center',
+                        mr: 2,
+                      }}
+                    >
+                      {hardware.name}
+                    </Box>
+                    <Box
+                      sx={{
+                        width: '50px',
+                        height: '50px',
+                      }}
+                    >
+                      <BallCanvas icon={hardware.icon} />
+                    </Box>
+                  </Box>
+                </div>
+              ))}
             </Box>
           </Box>
         </Box>
@@ -179,35 +250,44 @@ function About() {
         />
         <Box
             sx={{
-              display: 'flex',
+              display: { xs: 'grid', sm: 'grid', md: 'flex' },
               justifyContent: 'space-evenly',
               alignItems: 'center',
               bgcolor: 'background.default',
-              minHeight: '90vh',
+              height: 'fit-content',
+              minHeight: { md: '90vh' },
               color: 'text.secondary',
+              py: '25px',
             }}
         >
-          <img
-            data-aos="zoom-in-right"
-            data-aos-duration="1000"
-            src={anime}
-            alt="anime"
-            className='anime'
-          />
           <Box
-            data-aos="zoom-in-left"
+            sx={{
+              width: { xs: '90vw', sm: '80vw', md: '45vw' },
+            }}
+          >
+            <img
+              data-aos="fade-down"
+              data-aos-duration="1000"
+              src={anime}
+              alt="anime"
+              className='anime'
+            />
+          </Box>
+          <Box
+            data-aos="fade-up"
             data-aos-duration="1000"
             sx={{
-              width: '35vw',
+              width: 'fit-content',
               fontFamily: 'Sofia Sans',
-              fontSize: '2.897vw',
-              textAlign: 'left',
+              fontSize: '44px',
+              textAlign: { xs: 'center', md: 'left' },
+              p: { xs: '20px', md: 'none' }
             }}
           >
             Random Facts
             <Box
               sx={{
-                fontSize: '1.448vw',
+                fontSize: '22px',
                 textAlign: 'left',
               }}
             >
@@ -232,7 +312,7 @@ function About() {
                     Instagram
                   </Link>.
                 </li>
-                <li>Fav Quote: "Set your heart ablaze, go beyond your limits!" ~Kyojuro Rengoku</li>
+                <li>Fav Quote: "To win your dream is to destroy someone else's"</li>
               </ul>
             </Box>
           </Box>
@@ -244,45 +324,47 @@ function About() {
         />
         <Box
             sx={{
-              display: 'flex',
+              display: { xs: 'grid', sm: 'grid', md: 'flex' },
               justifyContent: 'space-evenly',
               alignItems: 'center',
               bgcolor: 'background.default',
-              minHeight: '90vh',
+              height: 'fit-content',
+              minHeight: { md: '90vh' },
               color: 'text.secondary',
+              py: '25px',
+              width: '100vw',
             }}
         >
           <Box
             data-aos="zoom-in"
             data-aos-duration="1000"
             sx={{
+              display: 'grid',
+              justifyContent: 'center',
               fontFamily: 'Sofia Sans',
-              width: '30vw',
-              fontSize: '2.897vw',
+              width: 'fit-content',
+              p: { xs: '20px', md: 'none' },
+              fontSize: '44px',
               textAlign: 'left',
             }}
           >
             My Skills
             <Box
               sx={{
-                fontSize: '1.448vw',
+                fontSize: '22px',
                 textAlign: 'left',
               }}
             >
-              <ul>
-                <li>Binge watching a series</li>
-                <li>Designing websites</li>
-                <li>PCB Designing</li>
-                <li>Working on circuits</li>
-                <li>Drinking coffee</li>
-              </ul>
+              {labels.map((label, title) => (
+                <ul key={title}>
+                  <li>{label.name}</li>
+                </ul>
+              ))}
             </Box>
           </Box>
           <Box
-            data-aos="zoom-out"
-            data-aos-duration="1000"
             sx={{
-              width: '30vw',
+              py: { xs: '20px', md: 'none' },
             }}
           >
             <Pie

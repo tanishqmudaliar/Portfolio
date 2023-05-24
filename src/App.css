@@ -7,43 +7,16 @@
   display: none;
 }
 
-.sofia {
-  font-family: 'Sofia Sans', 'sans-serif';
-}
-
-.italiano {
-  font-family: 'Italianno', cursive;
-}
-
-.pacifico {
-  font-family: 'Pacifico', cursive;
-}
-
-.mainpage_bg {
-  height: 93.7vh;
-  width: 62vw;
-  background-image: url(./Assets/mainpage.png);
-  background-size: cover;
-}
-
-.mainpage_ct {
-  margin-left: 20px;
-  display: flexbox;
-  width: 36vw;
-}
-
-.profile_a {
-  height: 25vw;
-  width: 25vw;
-  border-radius: 300px;  
-  box-shadow: #505050 0px 0px 30px 5px;
-}
-
 .profile {
-  height: 30vw;
-  width: 30vw;
-  border-radius: 300px;  
-  box-shadow: #505050 0px 0px 30px 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;  
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.anime {
+  width: 100%;
+  height: fit-content;
 }
 
 .icon {
@@ -51,11 +24,6 @@
   margin-bottom: -2px;
   border-radius: 5px;
   margin-right: 2px;
-}
-
-.anime {
-  width: 45vw;
-  height: 35vh;
 }
 
 .portfolio {

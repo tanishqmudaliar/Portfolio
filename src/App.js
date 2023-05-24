@@ -56,11 +56,11 @@ const ColorButton = styled(Button)({
   fontFamily: 'Sofia Sans, sans-serif',
   fontSize: '15px',
   fontWeight: '700',
-  height: '30px',
   borderRadius: '5px',
+  marginTop: '2.5px',
   textTransform: 'none',
-  marginRight: '20px',
-  marginTop: '6px',
+  marginLeft: '7px',
+  marginRight: '7px',
     '&:hover': {
         backgroundColor: "transparent",
         boxShadow: 'none',
@@ -108,18 +108,19 @@ function App() {
     <div className="App">
       <AppBar
         sx={{
-          bgcolor: 'background.default',
+          backgroundColor: 'background.default',
         }}
       >
         <Box
           sx={{
             display: 'flex',
             height: 'fit-content',
+            minHeight: '5vh',
             width: '90vw',
             px: '5vw',
             py: '1%',
             borderBottom: '1px solid grey',
-            justifyContent: { xs: 'space-between', md: 'space-evenly'}
+            justifyContent: { xs: 'space-between', md: 'space-evenly'},
           }}
         >
           <IconButton
@@ -139,7 +140,7 @@ function App() {
               textAlign: 'center',
               fontFamily: 'Italianno',
               fontSize: '28px',
-              mt: '4px',
+              mt: '0.8vh',
               width: 'fit-content',
               minWidth: '150px',
             }}
@@ -150,7 +151,7 @@ function App() {
             sx={{
               display: { xs: 'none', md: 'block' },
               width: 'fit-content',
-              textAlign: 'center'
+              textAlign: 'center',
             }}
           >
             <ColorButton href='/home'>HOME</ColorButton>
@@ -386,9 +387,11 @@ export default function AppWithDarkMode() {
               ? {
                 default: '#131313',
                 footer: '#202020',
+                shadow: '#cacaca',
               } : {
                 default: '#edf1fd',
-                footer: '#eaeaea'
+                footer: '#eaeaea',
+                shadow: '#cacaca',
               }
             )
           },
