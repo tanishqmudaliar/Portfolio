@@ -1,12 +1,20 @@
-import { Alert, Box, Divider, IconButton, Snackbar, TextField, styled } from '@mui/material'
-import React, { useState } from 'react';
+import {
+    Alert,
+    Box,
+    IconButton,
+    Snackbar,
+    TextField,
+    styled
+} from '@mui/material'
+import React, {
+    useState
+} from 'react';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import WhatsappIcon from '@mui/icons-material/WhatsApp';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import SendIcon from '@mui/icons-material/Send';
 import emailjs from '@emailjs/browser';
-import '../App.css';
 import EarthCanvas from '../Canvas/EarthCanvas';
 
 const IconRedirectButton = styled(IconButton)({
@@ -60,6 +68,7 @@ function Contact() {
                 sx={{
                     width: { xs: '100vw', md: '50vw' },
                     height: { xs: '100vw', md: 'auto' },
+                    maxHeight: { xs: '100vw', md: '42vw' },
                 }}
             >
                 <EarthCanvas />

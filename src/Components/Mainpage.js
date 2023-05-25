@@ -1,9 +1,16 @@
-import React, { useEffect } from 'react';
+import React, {
+  useEffect,
+} from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import "../App.css";
-import { Box, IconButton } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import {
+  Box,
+  IconButton,
+  Tooltip,
+} from '@mui/material';
+import {
+  styled,
+} from '@mui/material/styles';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -96,96 +103,120 @@ function Mainpage() {
                   gridRowGap: '10px',
                 }}
               >
-                <IconRedirectButton
-                  href="https://instagram.com/tanishq_mudaliar"
-                  target="_blank"
-                  rel="noopener"
-                  sx={{
-                    backgroundColor: 'icon.background',
-                    fontFamily: 'Sofia Sans, sans-serif',
-                    color: 'icon.color',
-                    height: '50px',
-                    width: '50px',
-                    fontSize: '20px',
-                  }}
+                <Tooltip
+                  title="Instagram"
                 >
-                  <InstagramIcon />
-                </IconRedirectButton>
-                <IconRedirectButton
-                  href="https://twitter.com/tanishqmudaliar"
-                  target="_blank"
-                  rel="noopener"
-                  sx={{
-                    backgroundColor: 'icon.background',
-                    fontFamily: 'Sofia Sans, sans-serif',
-                    color: 'icon.color',
-                    height: '50px',
-                    width: '50px',
-                    fontSize: '20px',
-                  }}
+                  <IconRedirectButton
+                    href="https://instagram.com/tanishq_mudaliar"
+                    target="_blank"
+                    rel="noopener"
+                    sx={{
+                      backgroundColor: 'icon.background',
+                      fontFamily: 'Sofia Sans, sans-serif',
+                      color: 'icon.color',
+                      height: '50px',
+                      width: '50px',
+                      fontSize: '20px',
+                    }}
+                  >
+                    <InstagramIcon />
+                  </IconRedirectButton>
+                </Tooltip>
+                <Tooltip
+                  title="Twitter"
                 >
-                  <TwitterIcon />
-                </IconRedirectButton>
-                <IconRedirectButton
-                  href="https://wa.me/+917977188240"
-                  target="_blank"
-                  rel="noopener"
-                  sx={{
-                    backgroundColor: 'icon.background',
-                    fontFamily: 'Sofia Sans, sans-serif',
-                    color: 'icon.color',
-                    height: '50px',
-                    width: '50px',
-                    fontSize: '20px',
-                  }}
+                  <IconRedirectButton
+                    href="https://twitter.com/tanishqmudaliar"
+                    target="_blank"
+                    rel="noopener"
+                    sx={{
+                      backgroundColor: 'icon.background',
+                      fontFamily: 'Sofia Sans, sans-serif',
+                      color: 'icon.color',
+                      height: '50px',
+                      width: '50px',
+                      fontSize: '20px',
+                    }}
+                  >
+                    <TwitterIcon />
+                  </IconRedirectButton>
+                </Tooltip>
+                <Tooltip
+                  title="Whatsapp"
                 >
-                  <WhatsAppIcon />
-                </IconRedirectButton>
-                <IconRedirectButton
-                  href="https://github.com/tanishqmudaliar"
-                  target="_blank"
-                  rel="noopener"
-                  sx={{
-                    backgroundColor: 'icon.background',
-                    fontFamily: 'Sofia Sans, sans-serif',
-                    color: 'icon.color',
-                    height: '50px',
-                    width: '50px',
-                    fontSize: '20px',
-                  }}
+                  <IconRedirectButton
+                    href="https://wa.me/+917977188240"
+                    target="_blank"
+                    rel="noopener"
+                    sx={{
+                      backgroundColor: 'icon.background',
+                      fontFamily: 'Sofia Sans, sans-serif',
+                      color: 'icon.color',
+                      height: '50px',
+                      width: '50px',
+                      fontSize: '20px',
+                    }}
+                  >
+                    <WhatsAppIcon />
+                  </IconRedirectButton>
+                </Tooltip>
+                <Tooltip
+                  title="Github"
                 >
-                  <GitHubIcon />
-                </IconRedirectButton>
-                <IconRedirectButton
-                  href="https://dev.to/tanishqmudaliar"
-                  target="_blank"
-                  rel="noopener"
-                  sx={{
-                    backgroundColor: 'icon.background',
-                    fontFamily: 'Sofia Sans, sans-serif',
-                    color: 'icon.color',
-                    height: '50px',
-                    width: '50px',
-                    fontSize: '20px',
-                  }}
+                  <IconRedirectButton
+                    href="https://github.com/tanishqmudaliar"
+                    target="_blank"
+                    rel="noopener"
+                    sx={{
+                      backgroundColor: 'icon.background',
+                      fontFamily: 'Sofia Sans, sans-serif',
+                      color: 'icon.color',
+                      height: '50px',
+                      width: '50px',
+                      fontSize: '20px',
+                    }}
+                  >
+                    <GitHubIcon />
+                  </IconRedirectButton>
+                </Tooltip>
+                <Tooltip
+                  title="Dev.to"
                 >
-                  <LogoDevIcon />
-                </IconRedirectButton>
-                <IconRedirectButton
-                  href="https://www.facebook.com/mudaliartanishq"
-                  target="_blank"
-                  rel="noopener"
-                  sx={{
-                    backgroundColor: 'icon.background',
-                    fontFamily: 'Sofia Sans, sans-serif',
-                    color: 'icon.color',
-                    height: '50px',
-                    width: '50px',
-                    fontSize: '20px',
-                  }}
+                  <IconRedirectButton
+                    href="https://dev.to/tanishqmudaliar"
+                    target="_blank"
+                    rel="noopener"
+                    sx={{
+                      backgroundColor: 'icon.background',
+                      fontFamily: 'Sofia Sans, sans-serif',
+                      color: 'icon.color',
+                      height: '50px',
+                      width: '50px',
+                      fontSize: '20px',
+                    }}
+                  >
+                    <LogoDevIcon />
+                  </IconRedirectButton>
+                </Tooltip>
+                <Tooltip
+                  title="Facebook"
                 >
-                  <FacebookIcon />
-                </IconRedirectButton>
+                  <IconRedirectButton
+                    href="https://www.facebook.com/mudaliartanishq"
+                    target="_blank"
+                    rel="noopener"
+                    sx={{
+                      backgroundColor: 'icon.background',
+                      fontFamily: 'Sofia Sans, sans-serif',
+                      color: 'icon.color',
+                      height: '50px',
+                      width: '50px',
+                      fontSize: '20px',
+                    }}
+                  >
+                    <FacebookIcon />
+                  </IconRedirectButton>
+                </Tooltip>
               </Box>
             </Box>
           </div>

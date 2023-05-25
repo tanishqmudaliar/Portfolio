@@ -27,7 +27,6 @@ import {
 } from "@mui/material";
 import "../App.css";
 import 'aos/dist/aos.css';
-import "../App.css";
 
 function Portfolio() {
     const [projects, setProjects] = useState('');
@@ -94,7 +93,11 @@ function Portfolio() {
                     <RobotCanvas />
                 </Box>
             </Box>
-            <Divider />
+            <Divider
+                sx={{
+                    backgroundColor: 'background.default',
+                }}
+            />
             <Box
                 sx={{
                     backgroundColor: 'background.default',

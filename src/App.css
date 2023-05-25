@@ -1,4 +1,5 @@
 .App {
+  overflow-x: auto !important;
   text-align: center;
   display: grid;
 }
@@ -19,14 +20,14 @@
   height: fit-content;
 }
 
-
-
 .thumbnail {
-  width: 50vw;
+  width: 100%;
+  height: auto;
   border-radius: 15px;
 }
 
 .content1 {
-  padding: 1%;
-  width: 71vw;
+  width: 100%;
+  height: auto;
+  max-width: 1200px;
 }

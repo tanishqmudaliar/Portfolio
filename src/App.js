@@ -19,6 +19,7 @@ import {
   IconButton,
   List,
   ListItemButton,
+  Tooltip,
   styled
 } from '@mui/material';
 import {
@@ -179,9 +180,13 @@ function App() {
             >
             {theme.palette.mode} mode
             </Box>
-            <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
-              {theme.palette.mode === 'dark' ? <LightModeRoundedIcon /> : <DarkModeRoundedIcon />}
-            </IconButton>
+            <Tooltip
+              title={theme.palette.mode === 'dark' ? "Toggle light mode" : "Toggle dark mode"}
+            >
+              <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+                {theme.palette.mode === 'dark' ? <LightModeRoundedIcon /> : <DarkModeRoundedIcon />}
+              </IconButton>
+            </Tooltip>
           </Box>
         </Box>
       </AppBar>
