@@ -1,14 +1,13 @@
-import {
-  Box,
-} from '@mui/material';
-import React from 'react';
-import {
-  useRouteError,
-} from "react-router-dom";
+import { Box } from '@mui/material';
+import React, { useEffect } from 'react';
+import { useRouteError } from 'react-router-dom';
 
 function ErrorPage() {
   const error = useRouteError();
   console.log(error);
+  useEffect(() => {
+    document.title = `${error.status} ${error.statusText}`;
+  });
 
   return (
     <div>
@@ -31,7 +30,7 @@ function ErrorPage() {
           sx={{
             width: '100%',
             fontFamily: 'Sofia Sans',
-            fontSize: { xs:' 120px', sm: '160px', md: '200px' },
+            fontSize: { xs: ' 120px', sm: '160px', md: '200px' },
           }}
         >
           {error.status} {error.statusText}
@@ -50,4 +49,4 @@ function ErrorPage() {
   );
 }
 
-export default ErrorPage
+export default ErrorPage;

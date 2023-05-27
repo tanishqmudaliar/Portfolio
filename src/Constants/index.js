@@ -14,31 +14,31 @@ import embc from '../Assets/embeddedc.png';
 
 const technologies = [
   {
-    name: "HTML 5",
+    name: 'HTML 5',
     icon: html,
   },
   {
-    name: "CSS 3",
+    name: 'CSS 3',
     icon: css,
   },
   {
-    name: "JavaScript",
+    name: 'JavaScript',
     icon: javascript,
   },
   {
-    name: "Tailwind CSS",
+    name: 'Tailwind CSS',
     icon: tailwind,
   },
   {
-    name: "React JS",
+    name: 'React JS',
     icon: reactjs,
   },
   {
-    name: "Three JS",
+    name: 'Three JS',
     icon: threejs,
   },
   {
-    name: "C Program",
+    name: 'C Program',
     icon: cprog,
   },
 ];
@@ -61,7 +61,7 @@ const technologies1 = [
     icon: stem,
   },
   {
-    name: "Assembly Language",
+    name: 'Assembly Language',
     icon: asm,
   },
   {
@@ -72,24 +72,30 @@ const technologies1 = [
 
 const labels = [
   {
-    name: 'Web Development'
+    name: 'Web Development',
   },
   {
-    name: 'UI/UX Designing'
+    name: 'UI/UX Designing',
   },
   {
-    name: 'PCB Designing'
+    name: 'PCB Designing',
   },
   {
-    name: 'Microcontroller Programming'
+    name: 'Microcontroller Programming',
   },
   {
-    name: 'Binge Watching a series'
+    name: 'Binge Watching a series',
   },
 ];
 
 const data = {
-  labels: ['Web Development', 'UI/UX Designing', 'PCB Designing', 'Microcontroller Programming', 'Binge Watching a series'],
+  labels: [
+    'Web Development',
+    'UI/UX Designing',
+    'PCB Designing',
+    'Microcontroller Programming',
+    'Binge Watching a series',
+  ],
   datasets: [
     {
       label: 'Experience %',

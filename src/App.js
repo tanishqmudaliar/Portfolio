@@ -3,13 +3,10 @@ import React, {
   createContext,
   useMemo,
   useState,
-  useEffect
+  useEffect,
 } from 'react';
 import './App.css';
-import {
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import {
   AppBar,
   Box,
@@ -20,13 +17,9 @@ import {
   List,
   ListItemButton,
   Tooltip,
-  styled
+  styled,
 } from '@mui/material';
-import {
-  useTheme,
-  ThemeProvider,
-  createTheme
-} from '@mui/material/styles';
+import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
 import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
@@ -40,18 +33,13 @@ import Portfolio from './Components/Portfolio';
 import DetailedPortfolio from './Components/DetailedPortfolio';
 import Contact from './Components/Contact';
 import Blog from './Components/Blog';
-import {
-  getDownloadURL,
-  ref
-} from 'firebase/storage';
-import {
-  storage
-} from './Config/firebase';
+import { getDownloadURL, ref } from 'firebase/storage';
+import { storage } from './Config/firebase';
 
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
 const ColorButton = styled(Button)({
-  backgroundColor: "transparent",
+  backgroundColor: 'transparent',
   boxShadow: 'none',
   color: '#9da1ad',
   fontFamily: 'Sofia Sans, sans-serif',
@@ -62,26 +50,26 @@ const ColorButton = styled(Button)({
   textTransform: 'none',
   marginLeft: '7px',
   marginRight: '7px',
-    '&:hover': {
-        backgroundColor: "transparent",
-        boxShadow: 'none',
-    },
-    '&:focus': {
-        backgroundColor: "transparent",
-        color: '#FFB300',
-    },
-  });
+  '&:hover': {
+    backgroundColor: 'transparent',
+    boxShadow: 'none',
+  },
+  '&:focus': {
+    backgroundColor: 'transparent',
+    color: '#FFB300',
+  },
+});
 
-  const drawerWidth = 240;
+const drawerWidth = 240;
 
-  const DrawerHeader = styled('div')(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
-  }));
+const DrawerHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+  justifyContent: 'flex-end',
+}));
 
 function App() {
   const theme = useTheme();
@@ -98,12 +86,11 @@ function App() {
 
   const [myresume, setMyResume] = useState(null);
   useEffect(() => {
-    const resume = ref(storage,'Tanishq Mudaliar.pdf')
-    getDownloadURL(resume)
-      .then((url) => {
-        setMyResume(url)
-    })
-  })
+    const resume = ref(storage, 'Tanishq Mudaliar.pdf');
+    getDownloadURL(resume).then((url) => {
+      setMyResume(url);
+    });
+  });
 
   return (
     <div className="App">
@@ -121,7 +108,7 @@ function App() {
             px: '5vw',
             py: '1%',
             borderBottom: '1px solid grey',
-            justifyContent: { xs: 'space-between', md: 'space-evenly'},
+            justifyContent: { xs: 'space-between', md: 'space-evenly' },
           }}
         >
           <IconButton
@@ -155,12 +142,14 @@ function App() {
               textAlign: 'center',
             }}
           >
-            <ColorButton href='/home'>HOME</ColorButton>
-            <ColorButton href='/about'>ABOUT</ColorButton>
-            <ColorButton href='/portfolio'>PORTFOLIO</ColorButton>
-            <ColorButton href={myresume} target="_blank" rel="noreferrer">RESUME</ColorButton>
-            <ColorButton href='/blog'>BLOG</ColorButton>
-            <ColorButton href='/contact'>CONTACT</ColorButton>
+            <ColorButton href="/home">HOME</ColorButton>
+            <ColorButton href="/about">ABOUT</ColorButton>
+            <ColorButton href="/portfolio">PORTFOLIO</ColorButton>
+            <ColorButton href={myresume} target="_blank" rel="noreferrer">
+              RESUME
+            </ColorButton>
+            <ColorButton href="/blog">BLOG</ColorButton>
+            <ColorButton href="/contact">CONTACT</ColorButton>
           </Box>
           <Box
             sx={{
@@ -170,21 +159,33 @@ function App() {
               width: 'fit-content',
               minWidth: { xs: 'fit-content', sm: '130px' },
               display: 'flex',
-              alignItems: 'center'
+              alignItems: 'center',
             }}
           >
             <Box
               sx={{
-                display: { xs: 'none', sm: 'block', md: 'block' }
+                display: { xs: 'none', sm: 'block', md: 'block' },
               }}
             >
-            {theme.palette.mode} mode
+              {theme.palette.mode} mode
             </Box>
             <Tooltip
-              title={theme.palette.mode === 'dark' ? "Toggle light mode" : "Toggle dark mode"}
+              title={
+                theme.palette.mode === 'dark'
+                  ? 'Toggle light mode'
+                  : 'Toggle dark mode'
+              }
             >
-              <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
-                {theme.palette.mode === 'dark' ? <LightModeRoundedIcon /> : <DarkModeRoundedIcon />}
+              <IconButton
+                sx={{ ml: 1 }}
+                onClick={colorMode.toggleColorMode}
+                color="inherit"
+              >
+                {theme.palette.mode === 'dark' ? (
+                  <LightModeRoundedIcon />
+                ) : (
+                  <DarkModeRoundedIcon />
+                )}
               </IconButton>
             </Tooltip>
           </Box>
@@ -217,10 +218,14 @@ function App() {
                 color: 'text.secondary',
               }}
             >
-              {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+              {theme.direction === 'ltr' ? (
+                <ChevronLeftIcon />
+              ) : (
+                <ChevronRightIcon />
+              )}
             </IconButton>
           </DrawerHeader>
-          <Divider variant='middle'/>
+          <Divider variant="middle" />
           <List
             sx={{
               display: 'grid',
@@ -229,7 +234,7 @@ function App() {
             }}
           >
             <ListItemButton
-              href='/home'
+              href="/home"
               sx={{
                 width: '90%',
                 borderRadius: 3,
@@ -237,15 +242,15 @@ function App() {
                 mx: '5%',
                 my: '2.5%',
                 justifyContent: 'space-evenly',
-                '&:hover' : {
-                  background: 'background.default'
-                }
+                '&:hover': {
+                  background: 'background.default',
+                },
               }}
             >
               Home
             </ListItemButton>
             <ListItemButton
-              href='/about'
+              href="/about"
               sx={{
                 width: '90%',
                 borderRadius: 3,
@@ -253,15 +258,15 @@ function App() {
                 mx: '5%',
                 my: '2.5%',
                 justifyContent: 'space-evenly',
-                '&:hover' : {
-                  background: 'background.default'
-                }
+                '&:hover': {
+                  background: 'background.default',
+                },
               }}
             >
               About
             </ListItemButton>
             <ListItemButton
-              href='/portfolio'
+              href="/portfolio"
               sx={{
                 width: '90%',
                 borderRadius: 3,
@@ -269,9 +274,9 @@ function App() {
                 mx: '5%',
                 my: '2.5%',
                 justifyContent: 'space-evenly',
-                '&:hover' : {
-                  background: 'background.default'
-                }
+                '&:hover': {
+                  background: 'background.default',
+                },
               }}
             >
               Portfolio
@@ -287,15 +292,15 @@ function App() {
                 mx: '5%',
                 my: '2.5%',
                 justifyContent: 'space-evenly',
-                '&:hover' : {
-                  background: 'background.default'
-                }
+                '&:hover': {
+                  background: 'background.default',
+                },
               }}
             >
               Resume
             </ListItemButton>
             <ListItemButton
-              href='/blog'
+              href="/blog"
               sx={{
                 width: '90%',
                 borderRadius: 3,
@@ -303,15 +308,15 @@ function App() {
                 mx: '5%',
                 my: '2.5%',
                 justifyContent: 'space-evenly',
-                '&:hover' : {
-                  background: 'background.default'
-                }
+                '&:hover': {
+                  background: 'background.default',
+                },
               }}
             >
               Blog
             </ListItemButton>
             <ListItemButton
-              href='/contact'
+              href="/contact"
               sx={{
                 width: '90%',
                 borderRadius: 3,
@@ -319,9 +324,9 @@ function App() {
                 mx: '5%',
                 my: '2.5%',
                 justifyContent: 'space-evenly',
-                '&:hover' : {
-                  background: 'background.default'
-                }
+                '&:hover': {
+                  background: 'background.default',
+                },
               }}
             >
               Contact
@@ -329,43 +334,45 @@ function App() {
           </List>
         </Box>
       </Drawer>
-      <RouterProvider router={createBrowserRouter([
-        {
-          path: '/',
-          element: <Mainpage />,
-          errorElement: <ErrorPage />,
-        },
-        {
-          path: '/home',
-          element: <Mainpage />,
-          errorElement: <ErrorPage />,
-        },
-        {
-          path: '/about',
-          element: <About />,
-          errorElement: <ErrorPage />,
-        },
-        {
-          path: '/portfolio',
-          element: <Portfolio />,
-          errorElement: <ErrorPage />,
-        },
-        {
-          path: "/portfolio/:id",
-          element: <DetailedPortfolio />,
-          errorElement: <ErrorPage />,
-        },
-        {
-          path: "/blog",
-          element: <Blog />,
-          errorElement: <ErrorPage />,
-        },
-        {
-          path: "/contact",
-          element: <Contact />,
-          errorElement: <ErrorPage />,
-        },
-      ])}/>
+      <RouterProvider
+        router={createBrowserRouter([
+          {
+            path: '/',
+            element: <Mainpage />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: '/home',
+            element: <Mainpage />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: '/about',
+            element: <About />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: '/portfolio',
+            element: <Portfolio />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: '/portfolio/:id',
+            element: <DetailedPortfolio />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: '/blog',
+            element: <Blog />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: '/contact',
+            element: <Contact />,
+            errorElement: <ErrorPage />,
+          },
+        ])}
+      />
       <Footer />
     </div>
   );
@@ -379,7 +386,7 @@ export default function AppWithDarkMode() {
         setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
       },
     }),
-    [],
+    []
   );
 
   const theme = useMemo(
@@ -390,46 +397,46 @@ export default function AppWithDarkMode() {
           background: {
             ...(mode === 'dark'
               ? {
-                default: '#131313',
-                footer: '#202020',
-                shadow: '#cacaca',
-              } : {
-                default: '#edf1fd',
-                footer: '#eaeaea',
-                shadow: '#cacaca',
-              }
-            )
+                  default: '#131313',
+                  footer: '#202020',
+                  shadow: '#cacaca',
+                }
+              : {
+                  default: '#edf1fd',
+                  footer: '#eaeaea',
+                  shadow: '#cacaca',
+                }),
           },
           text: {
             ...(mode === 'dark'
               ? {
-                primary: '#ffb300',
-                secondary: 'rgba(255, 255, 255, 0.7)',
-                hover: '#ffb300',
-                footer: 'rgba(255, 255, 255, 0.7)'
-              } : {
-                primary: '#000000',
-                secondary: '#303030',
-                hover: '#000000',
-                footer: '#909090'
-              }
-            )
+                  primary: '#ffb300',
+                  secondary: 'rgba(255, 255, 255, 0.7)',
+                  hover: '#ffb300',
+                  footer: 'rgba(255, 255, 255, 0.7)',
+                }
+              : {
+                  primary: '#000000',
+                  secondary: '#303030',
+                  hover: '#000000',
+                  footer: '#909090',
+                }),
           },
           icon: {
             ...(mode === 'dark'
               ? {
-                background: '#ffb300',
-                color: '#303030'
-              } : {
-                background: '#303030',
-                color: '#ffb300'
-              }
-            )
+                  background: '#ffb300',
+                  color: '#303030',
+                }
+              : {
+                  background: '#303030',
+                  color: '#ffb300',
+                }),
           },
         },
       }),
-    [mode],
-  );  
+    [mode]
+  );
 
   return (
     <ColorModeContext.Provider value={colorMode}>
