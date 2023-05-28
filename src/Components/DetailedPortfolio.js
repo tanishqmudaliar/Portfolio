@@ -13,6 +13,9 @@ function DetailedPortfolio() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const ref = doc(db, `portfolio/${id}`);
     onSnapshot(ref, (snapshot) => {
       setDocument({ ...snapshot.data() });
