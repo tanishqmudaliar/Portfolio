@@ -126,6 +126,23 @@ function Mainpage() {
                   <TwitterIcon />
                 </IconRedirectButton>
               </Tooltip>
+              <Tooltip title="Facebook">
+                <IconRedirectButton
+                  href="https://www.facebook.com/mudaliartanishq"
+                  target="_blank"
+                  rel="noopener"
+                  sx={{
+                    backgroundColor: 'icon.background',
+                    fontFamily: 'Sofia Sans, sans-serif',
+                    color: 'icon.color',
+                    height: '50px',
+                    width: '50px',
+                    fontSize: '20px',
+                  }}
+                >
+                  <FacebookIcon />
+                </IconRedirectButton>
+              </Tooltip>
               <Tooltip title="Whatsapp">
                 <IconRedirectButton
                   href="https://wa.me/+917977188240"
@@ -175,23 +192,6 @@ function Mainpage() {
                   }}
                 >
                   <LogoDevIcon />
-                </IconRedirectButton>
-              </Tooltip>
-              <Tooltip title="Facebook">
-                <IconRedirectButton
-                  href="https://www.facebook.com/mudaliartanishq"
-                  target="_blank"
-                  rel="noopener"
-                  sx={{
-                    backgroundColor: 'icon.background',
-                    fontFamily: 'Sofia Sans, sans-serif',
-                    color: 'icon.color',
-                    height: '50px',
-                    width: '50px',
-                    fontSize: '20px',
-                  }}
-                >
-                  <FacebookIcon />
                 </IconRedirectButton>
               </Tooltip>
             </Box>

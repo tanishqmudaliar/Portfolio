@@ -32,3 +32,4 @@ yarn-error.log*
 .eslintrc.json
 .prettierrc.json
 .prettierignore
+firebase-debug.log
