@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../App.css';
-import { Box, Divider, Link } from '@mui/material';
-
-let x;
+import { Box, Button, Divider, Link } from '@mui/material';
 
 function Blog() {
   const [articles, setArticles] = useState(null);
@@ -12,9 +10,8 @@ function Blog() {
       .then((res) => {
         setArticles(res);
       });
+    document.title = 'Tanishq Mudaliar | Blog';
   });
-
-  console.log(articles);
 
   return (
     <div>
@@ -25,6 +22,9 @@ function Blog() {
           height: 'fit-content',
           backgroundColor: 'background.default',
           color: 'text.secondary',
+          display: 'flex',
+          justifyContent: 'space-evenly',
+          pb: 2,
         }}
       >
         {articles &&
@@ -39,7 +39,7 @@ function Blog() {
               >
                 <Box
                   sx={{
-                    width: '70vw',
+                    width: { xs: '90vw', md: '60vw' },
                   }}
                 >
                   <img
@@ -64,8 +64,10 @@ function Blog() {
                     >
                       <Box
                         sx={{
-                          width: '50px',
-                          height: '50px',
+                          width: '15vw',
+                          maxWidth: '50px',
+                          height: '15vw',
+                          maxHeight: '50px',
                         }}
                       >
                         <img
@@ -80,6 +82,7 @@ function Blog() {
                         target="_blank"
                         rel="noopener"
                         sx={{
+                          textAlign: 'left',
                           fontFamily: 'Sofia Sans',
                           pl: 1,
                           fontSize: '16px',
@@ -99,16 +102,20 @@ function Blog() {
                         fontSize: '16px',
                       }}
                     >
-                      Reading time {article.reading_time_minutes} minutes
-                      <Divider />
                       Published on {article.readable_publish_date}
+                      <Divider
+                        sx={{
+                          my: 0.5,
+                        }}
+                      />
+                      Reading time {article.reading_time_minutes} minutes
                     </Box>
                   </Box>
                   <Divider />
                   <Box
                     sx={{
                       fontFamily: 'Sofia Sans',
-                      fontSize: '70px',
+                      fontSize: { xs: '52px', sm: '70px' },
                       fontWeight: 600,
                       textAlign: 'left',
                       px: 1,
@@ -116,8 +123,92 @@ function Blog() {
                   >
                     {article.title}
                   </Box>
+                  <Box
+                    sx={{
+                      my: 1,
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        bgcolor: 'background.footer',
+                        width: 'fit-content',
+                        p: 1,
+                        borderRadius: '5px',
+                        boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
+                        m: 1,
+                      }}
+                    >
+                      #{article.tag_list[0]}
+                    </Box>
+                    <Box
+                      sx={{
+                        bgcolor: 'background.footer',
+                        width: 'fit-content',
+                        p: 1,
+                        borderRadius: '5px',
+                        boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
+                        m: 1,
+                      }}
+                    >
+                      #{article.tag_list[1]}
+                    </Box>
+                    <Box
+                      sx={{
+                        bgcolor: 'background.footer',
+                        width: 'fit-content',
+                        p: 1,
+                        borderRadius: '5px',
+                        boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
+                        m: 1,
+                      }}
+                    >
+                      #{article.tag_list[2]}
+                    </Box>
+                    <Box
+                      sx={{
+                        bgcolor: 'background.footer',
+                        width: 'fit-content',
+                        p: 1,
+                        borderRadius: '5px',
+                        boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
+                        m: 1,
+                      }}
+                    >
+                      #{article.tag_list[3]}
+                    </Box>
+                  </Box>
+                  <Box
+                    sx={{
+                      py: 2,
+                      textAlign: 'left',
+                      fontFamily: 'Sofia Sans',
+                      fontSize: '36px',
+                    }}
+                  >
+                    {article.description}
+                    <br />
+                    <Button
+                      href={article.canonical_url}
+                      target="_blank"
+                      rel="noopener"
+                      variant="outlined"
+                      sx={{
+                        borderColor: 'text.secondary',
+                        color: 'text.secondary',
+                        '&:hover': {
+                          borderColor: '#ffb300',
+                          color: '#ffb300',
+                        },
+                      }}
+                    >
+                      Read More
+                    </Button>
+                  </Box>
                 </Box>
               </Box>
+              <Divider />
             </div>
           ))}
       </Box>
