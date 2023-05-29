@@ -3,11 +3,12 @@ import AOS from 'aos';
 import { Tilt } from 'react-tilt';
 import { useNavigate } from 'react-router-dom';
 import RobotCanvas from '../Canvas/RobotCanvas';
-import { db } from '../Config/firebase.js';
+import { analytics, db } from '../Config/firebase.js';
 import { onSnapshot, collection, orderBy, query } from 'firebase/firestore';
 import { Box, Card, CardMedia, Divider } from '@mui/material';
 import '../App.css';
 import 'aos/dist/aos.css';
+import { logEvent } from 'firebase/analytics';
 
 function Portfolio() {
   const [projects, setProjects] = useState('');
@@ -20,6 +21,7 @@ function Portfolio() {
       setProjects(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
     document.title = 'Tanishq Mudaliar | Portfolio';
+    logEvent(analytics, 'portfolio_visited');
   });
 
   return (

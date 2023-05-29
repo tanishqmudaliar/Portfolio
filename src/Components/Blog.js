@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import '../App.css';
 import { Box, Button, Divider, Link } from '@mui/material';
+import { analytics } from '../Config/firebase';
+import { logEvent } from 'firebase/analytics';
 
 function Blog() {
   const [articles, setArticles] = useState(null);
@@ -11,6 +13,7 @@ function Blog() {
         setArticles(res);
       });
     document.title = 'Tanishq Mudaliar | Blog';
+    logEvent(analytics, 'blog_visited');
   });
 
   return (
@@ -190,6 +193,9 @@ function Blog() {
                     {article.description}
                     <br />
                     <Button
+                      onClick={() => {
+                        logEvent(analytics, `blog_visted[${article.title}]`);
+                      }}
                       href={article.canonical_url}
                       target="_blank"
                       rel="noopener"

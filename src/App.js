@@ -34,7 +34,8 @@ import DetailedPortfolio from './Components/DetailedPortfolio';
 import Contact from './Components/Contact';
 import Blog from './Components/Blog';
 import { getDownloadURL, ref } from 'firebase/storage';
-import { storage } from './Config/firebase';
+import { analytics, storage } from './Config/firebase';
+import { logEvent } from 'firebase/analytics';
 
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
@@ -145,7 +146,14 @@ function App() {
             <ColorButton href="/home">HOME</ColorButton>
             <ColorButton href="/about">ABOUT</ColorButton>
             <ColorButton href="/portfolio">PORTFOLIO</ColorButton>
-            <ColorButton href={myresume} target="_blank" rel="noreferrer">
+            <ColorButton
+              href={myresume}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => {
+                logEvent(analytics, 'resume_downloaded');
+              }}
+            >
               RESUME
             </ColorButton>
             <ColorButton href="/blog">BLOG</ColorButton>

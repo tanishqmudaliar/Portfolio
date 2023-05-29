@@ -10,11 +10,14 @@ import BallCanvas from '../Canvas/BallCanvas';
 import 'aos/dist/aos.css';
 import '../App.css';
 import 'chart.js/auto';
+import { logEvent } from 'firebase/analytics';
+import { analytics } from '../Config/firebase';
 
 function About() {
   useEffect(() => {
     AOS.init();
     document.title = 'Tanishq Mudaliar | About';
+    logEvent(analytics, 'about_visited');
   }, []);
 
   return (

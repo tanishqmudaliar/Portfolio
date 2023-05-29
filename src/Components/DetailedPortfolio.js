@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Divider, IconButton, Tooltip } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import { db } from '../Config/firebase.js';
+import { analytics, db } from '../Config/firebase.js';
 import { onSnapshot, doc, collection } from 'firebase/firestore';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import PublicIcon from '@mui/icons-material/Public';
+import { logEvent } from 'firebase/analytics';
 
 function DetailedPortfolio() {
   const { id } = useParams();
@@ -23,6 +24,7 @@ function DetailedPortfolio() {
     onSnapshot(collection(db, `portfolio/${id}/Steps`), (snapshot) =>
       setSteps(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
+    logEvent(analytics, `portfolio_visited[${id}]`);
   });
 
   return (
