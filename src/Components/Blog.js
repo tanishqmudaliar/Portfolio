@@ -13,8 +13,11 @@ function Blog() {
         setArticles(res);
       });
     document.title = 'Tanishq Mudaliar | Blog';
-    logEvent(analytics, 'blog_visited');
   });
+
+  useEffect(() => {
+    logEvent(analytics, 'blog_visited');
+  }, []);
 
   return (
     <div>

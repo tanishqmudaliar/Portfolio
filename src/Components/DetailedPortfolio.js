@@ -14,7 +14,8 @@ function DetailedPortfolio() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    logEvent(analytics, `portfolio_visited[${id}]`);
+  }, [id]);
 
   useEffect(() => {
     const ref = doc(db, `portfolio/${id}`);
@@ -24,7 +25,6 @@ function DetailedPortfolio() {
     onSnapshot(collection(db, `portfolio/${id}/Steps`), (snapshot) =>
       setSteps(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
-    logEvent(analytics, `portfolio_visited[${id}]`);
   });
 
   return (

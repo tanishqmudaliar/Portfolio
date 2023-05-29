@@ -21,8 +21,10 @@ function Portfolio() {
       setProjects(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
     document.title = 'Tanishq Mudaliar | Portfolio';
-    logEvent(analytics, 'portfolio_visited');
   });
+  useEffect(() => {
+    logEvent(analytics, 'portfolio_visited');
+  }, []);
 
   return (
     <div>
