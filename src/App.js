@@ -388,13 +388,21 @@ function App() {
 
 export default function AppWithDarkMode() {
   const [mode, setMode] = useState('light');
+  useEffect(() => {
+    setMode(
+      localStorage.getItem('mode') === null
+        ? 'light'
+        : localStorage.getItem('mode')
+    );
+  }, []);
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {
         setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+        localStorage.setItem('mode', mode === 'light' ? 'dark' : 'light');
       },
     }),
-    []
+    [mode]
   );
 
   const theme = useMemo(
